@@ -12,6 +12,7 @@ export class AuthHeaderComponent {
   // constructor(private router: Router) {}
   isLogin: boolean = false;
   userName: string | null = null;
+  userType: string | null = null;
 
   constructor(private authService: AuthServiceService) {}
   ngOnInit(): void {
@@ -19,6 +20,7 @@ export class AuthHeaderComponent {
     if (user) {
       this.isLogin = true;
       this.userName = user.name;
+      this.userType = user.type;
     }
   }
 

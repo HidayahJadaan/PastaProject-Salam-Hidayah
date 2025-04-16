@@ -126,7 +126,7 @@ export class LoginComponent implements OnInit {
     } else if (user.type === 'chef') {
       this.router.navigate(['/chef']);
     } else if (user.type === 'customer') {
-      this.router.navigate(['/customer']);
+      this.router.navigate(['/']);
     }
   }
 

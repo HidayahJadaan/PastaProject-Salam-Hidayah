@@ -6,9 +6,10 @@ import { MainHomeLayoutComponent } from './components/main-home-layout/main-home
 import { AboutUsComponent } from './components/pages/about-us/about-us.component';
 import { ContactUsComponent } from './components/pages/contact-us/contact-us.component';
 import { MainMenuComponent } from './components/pages/main-menu/main-menu.component';
+import { HomePageComponent } from './components/pages/home-page/home-page.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'auth', pathMatch: 'full' },
+  { path: '', redirectTo: '', pathMatch: 'full' },
 
   {
     path: 'auth',
@@ -28,7 +29,7 @@ const routes: Routes = [
 
   {
     path: 'chef',
-    component: AuthLayoutComponent,
+    component: MainHomeLayoutComponent,
 
     loadChildren: () =>
       import('./features/chef/chef.module').then((m) => m.ChefModule),
@@ -38,7 +39,7 @@ const routes: Routes = [
 
   {
     path: 'customer',
-    component: AuthLayoutComponent,
+    component: MainHomeLayoutComponent,
     loadChildren: () =>
       import('./features/customer/customer.module').then(
         (m) => m.CustomerModule
@@ -48,8 +49,9 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: MainHomeLayoutComponent, 
+    component: MainHomeLayoutComponent,
     children: [
+      { path: '', component: HomePageComponent },
       { path: 'about-us', component: AboutUsComponent },
       { path: 'main-menu', component: MainMenuComponent },
       { path: 'contact-us', component: ContactUsComponent },

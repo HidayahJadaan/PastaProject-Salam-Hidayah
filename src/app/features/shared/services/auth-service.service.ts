@@ -23,7 +23,7 @@ export class AuthServiceService {
     sessionStorage.removeItem('remember-me');
     // }
 
-    this.router.navigate(['auth']);
+    this.router.navigate(['/']);
   }
   // ================================
   loginUser(email: string, password: string): Promise<User> {

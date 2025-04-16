@@ -1,7 +1,7 @@
 <header>
   <div>
     <ul>
-      <li [routerLink]="['/auth']">Home</li>
+      <li [routerLink]="['/']">Home</li>
       <li [routerLink]="['/main-menu']">Menu</li>
       <li [routerLink]="['/about-us']">About Us</li>
       <li [routerLink]="['/contact-us']">Contact Us</li>
@@ -9,7 +9,7 @@
   </div>
 
   <div *ngIf="isLogin; else notLoggedIn">
-    <span>Welcome, {{ userName }}</span>
+    <button [routerLink]="['/',userType,'profile']">{{ userName }}</button>
     <button (click)="logout()" class="logout-btn">Logout</button>
   </div>
 

@@ -9,6 +9,7 @@ import { MainNavbarComponent } from './components/main-navbar/main-navbar.compon
 import { AboutUsComponent } from './components/pages/about-us/about-us.component';
 import { ContactUsComponent } from './components/pages/contact-us/contact-us.component';
 import { MainMenuComponent } from './components/pages/main-menu/main-menu.component';
+import { HomePageComponent } from './components/pages/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { MainMenuComponent } from './components/pages/main-menu/main-menu.compon
     MainNavbarComponent,
     AboutUsComponent,
     ContactUsComponent,
-    MainMenuComponent
+    MainMenuComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

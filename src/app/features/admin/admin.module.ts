@@ -6,6 +6,7 @@ import { AdminChefsListComponent } from './components/admin-chefs-list/admin-che
 import { AdminAddPastasComponent } from './components/admin-add-pastas/admin-add-pastas.component';
 import { AdminIngredientsComponent } from './components/admin-ingredients/admin-ingredients.component';
 import { AdminRoutingModule } from './admin-routing.module';
+import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
 
 
 
@@ -15,7 +16,8 @@ import { AdminRoutingModule } from './admin-routing.module';
     BranchesListComponent,
     AdminChefsListComponent,
     AdminAddPastasComponent,
-    AdminIngredientsComponent
+    AdminIngredientsComponent,
+    AdminProfileComponent
   ],
   imports: [
     CommonModule,

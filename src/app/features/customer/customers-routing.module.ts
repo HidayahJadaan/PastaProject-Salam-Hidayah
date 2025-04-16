@@ -9,7 +9,7 @@ import { CustomerOrdersComponent } from './components/customer-orders/customer-o
 import { CustomerCookAtHomeComponent } from './components/customer-cook-at-home/customer-cook-at-home.component';
 
 const routes: Routes = [
-  { path: '', component: CustomerHomeComponent },
+  // { path: '', component: CustomerHomeComponent },
   // { path: 'customer', component: CustomerHomeComponent },
   { path: 'profile', component: CustomerProfileComponent },
   { path: 'menu', component: CustomerMenuComponent },

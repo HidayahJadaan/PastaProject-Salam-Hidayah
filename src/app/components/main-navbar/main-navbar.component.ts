@@ -11,6 +11,7 @@ import { AuthServiceService } from '../../features/shared/services/auth-service.
 export class MainNavbarComponent implements OnInit {
   isLogin: boolean = false;
   userName: string | null = null;
+userType: string | null = null;
 
   constructor(private authService: AuthServiceService) {}
   ngOnInit(): void {
@@ -18,6 +19,7 @@ export class MainNavbarComponent implements OnInit {
     if (user) {
       this.isLogin = true;
       this.userName = user.name;
+      this.userType = user.type;
     }
   }
 
