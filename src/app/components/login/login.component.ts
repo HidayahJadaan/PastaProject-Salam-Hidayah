@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     }
 
     if (currentUser) {
-      this.router.navigate(['users']);
+      this.redirectUser(currentUser);
     }
   }
 
@@ -51,6 +51,7 @@ export class LoginComponent implements OnInit {
           console.log(this.email);
 
           alert(`Welcome user:${user.name}`);
+
           localStorage.setItem('remember-me', JSON.stringify(this.rememberMe));
 
           const userToSave = {
@@ -67,7 +68,7 @@ export class LoginComponent implements OnInit {
             sessionStorage.setItem('current-user', JSON.stringify(userToSave));
           }
 
-          this.router.navigate(['users']);
+          this.redirectUser(user);
         })
         .catch((error: string) => {
           this.success = false;
@@ -77,4 +78,15 @@ export class LoginComponent implements OnInit {
       this.error = 'Invalid Email and Password';
     }
   }
+
+  redirectUser(user: any) {
+    if (user.type === 'admin') {
+      this.router.navigate(['/admin']);
+    } else if (user.type === 'chef') {
+      this.router.navigate(['/chef']);
+    } else if (user.type === 'customer') {
+      this.router.navigate(['/customer']);
+    }
+  }
+  
 }

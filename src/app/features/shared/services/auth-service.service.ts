@@ -24,7 +24,7 @@ export class AuthServiceService {
         sessionStorage.removeItem('remember-me');
     // }
 
-    this.router.navigate(['login']);
+    this.router.navigate(['auth']);
   }
   // ================================
   loginUser(email: string, password: string): Promise<User> {

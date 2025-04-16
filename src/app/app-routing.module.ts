@@ -1,26 +1,46 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { AuthLayoutComponent } from './features/shared/components/auth-layout/auth-layout.component';
+import { AuthGuard } from './auth/guards/auth.guard';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
+
   {
-    path:'',
-    component:LoginComponent
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
+
   {
-    path:'users',
-    component:AuthLayoutComponent,
-    loadChildren:()=>import('./features/users/users.module').then(m=>m.UsersModule)
+    path: 'admin',
+    loadChildren: () =>
+      import('./features/admin/admin.module').then((m) => m.AdminModule),
+    canActivate: [AuthGuard],
+    data: { role: 'admin' },
   },
+
   {
-    path:'login',
-    component:LoginComponent
-  }
+    path: 'chef',
+    loadChildren: () =>
+      import('./features/chef/chef.module').then((m) => m.ChefModule),
+    canActivate: [AuthGuard],
+    data: { role: 'chef' },
+  },
+
+  {
+    path: 'customer',
+    loadChildren: () =>
+      import('./features/customer/customer.module').then(
+        (m) => m.CustomerModule
+      ),
+    canActivate: [AuthGuard],
+    data: { role: 'customer' },
+  },
+
+  { path: '**', redirectTo: 'auth' },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
