@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './features/shared/shared.module';
 import { MainHomeLayoutComponent } from './components/main-home-layout/main-home-layout.component';
 import { MainNavbarComponent } from './components/main-navbar/main-navbar.component';
+import { AboutUsComponent } from './components/pages/about-us/about-us.component';
+import { ContactUsComponent } from './components/pages/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainHomeLayoutComponent,
-    MainNavbarComponent
+    MainNavbarComponent,
+    AboutUsComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,

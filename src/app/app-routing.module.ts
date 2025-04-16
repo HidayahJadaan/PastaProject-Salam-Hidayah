@@ -3,13 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { AuthLayoutComponent } from './features/shared/components/auth-layout/auth-layout.component';
 import { MainHomeLayoutComponent } from './components/main-home-layout/main-home-layout.component';
+import { AboutUsComponent } from './components/pages/about-us/about-us.component';
+import { ContactUsComponent } from './components/pages/contact-us/contact-us.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
 
   {
     path: 'auth',
-    component:MainHomeLayoutComponent,
+    component: MainHomeLayoutComponent,
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
 
@@ -43,7 +45,14 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { role: 'customer' },
   },
-
+  {
+    path: '',
+    component: MainHomeLayoutComponent, 
+    children: [
+      { path: 'about-us', component: AboutUsComponent },
+      { path: 'contact-us', component: ContactUsComponent },
+    ],
+  },
   { path: '**', redirectTo: 'auth' },
 ];
 
