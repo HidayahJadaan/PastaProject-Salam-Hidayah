@@ -1,0 +1,49 @@
+<div class="head">
+  <h3>User List</h3>
+  <button routerLink="/users/add" class="cursor-ponter">Add New User</button>
+</div>
+<div class="success" *ngIf="loading">
+  <img src="/loader.gif" width="30px" />
+  loading user
+</div>
+<table border="1" [width]="1400" *ngIf="!loading">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Creat At</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users; let i = index">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name | capitlize }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.password | hidePassword : "*" }}</td>
+      <td>{{ user.create_at | date : "dd,MM,yyyy" }}</td>
+      <div class="action">
+        <button class="cursor-ponter" (click)="editUser(user)">Edit</button>
+        <button class="cursor-ponter" routerLink="/users/details/{{ user.id }}">
+          Detalis
+        </button>
+        <button class="cursor-ponter" (click)="deletUserClick(user)">
+          Delete
+        </button>
+      </div>
+    </tr>
+  </tbody>
+</table>
+
+currentPage = {{currentPage}}
+<div class="pagination">
+  <a
+    *ngFor="let pageNo of pages"
+    [class.active]="currentPage === pageNo"
+    routerLink="/users/list"
+    [queryParams]="{ page: pageNo }"
+    >{{ pageNo }}</a
+  >
+</div>

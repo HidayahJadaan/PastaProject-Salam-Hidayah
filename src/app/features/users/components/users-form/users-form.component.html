@@ -1,0 +1,44 @@
+<div class="head">
+      
+    <h3>User {{id ? 'Edit':'Add'}}</h3>
+    <div>
+        <a routerLink="/users/list">User List</a>
+    </div>
+   
+</div>
+<div class="user-form">
+    <div class="form">
+      
+        <div> 
+            <div class="success" *ngIf="loading">
+                <img src="/loader.gif" width="30px">
+                Saving User ...
+                </div>
+                <div class="success" *ngIf="loadingforGet">
+                    <img src="/loader.gif" width="30px">
+                    Getting User ...
+                    </div>
+                <div class="success" *ngIf="success">
+                  {{success}}
+                    </div>
+            <div class="error" *ngIf="errors.length">
+              <div *ngFor="let error of errors">{{error}}</div> <!--استخدمت لوب لانه بدي اطبع اري-->
+            </div>
+            <div class="form-control">
+                <label>Name</label>
+            <input type="text" name="name "[(ngModel)]="name">
+        </div>
+        <div class="form-control">
+            <label>Email Address</label>
+        <input type="text" name="email "[(ngModel)]="email">
+    </div>
+        <div class="form-control"> 
+            <label>Password</label>
+            <input type="password" name="password"[(ngModel)]="password">
+        </div>
+        <div class="form-control">
+          <button (click)="userSave()">Save</button>
+        </div>
+    </div>
+</div> 
+</div> 

@@ -1,0 +1,28 @@
+<div class="login">
+  <div class="form">
+    <h1>Login Users</h1>
+    <div>
+      <div class="success" *ngIf="success">logging users...</div>
+      <div class="error" *ngIf="error">
+        {{ error }}
+      </div>
+      <div class="form-control">
+        <label>Email Address</label>
+        <input type="text" name="email " [(ngModel)]="email" />
+      </div>
+      <div class="form-control">
+        <label>Password</label>
+        <input type="password" name="password" [(ngModel)]="password" />
+      </div>
+      <div class="form-control">
+        <label
+          >Remember me
+          <input type="checkbox" name="rememberme" [(ngModel)]="rememberMe" />
+        </label>
+      </div>
+      <div class="form-control">
+        <button (click)="userLogin()">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
