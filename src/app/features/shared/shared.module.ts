@@ -9,7 +9,7 @@ import { HidePasswordPipe } from './pipes/hide-password.pipe';
 import { FormsModule } from '@angular/forms';
 import { AuthServiceService } from './services/auth-service.service';
 
-
+const layoutComponents = [AuthHeaderComponent, AuthFooterComponent];
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { AuthServiceService } from './services/auth-service.service';
     HidePasswordPipe,
   ],
   imports: [CommonModule, RouterModule, FormsModule],
-  exports: [AuthLayoutComponent, CapitlizePipe, HidePasswordPipe, FormsModule],
+  exports: [AuthLayoutComponent, CapitlizePipe, HidePasswordPipe, FormsModule, ...layoutComponents],
   providers: [{ provide: AuthServiceService, useClass: AuthServiceService }],
 })
 export class SharedModule {}

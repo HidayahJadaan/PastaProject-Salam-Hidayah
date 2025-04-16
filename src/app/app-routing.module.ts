@@ -1,17 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth/guards/auth.guard';
+import { AuthLayoutComponent } from './features/shared/components/auth-layout/auth-layout.component';
+import { MainHomeLayoutComponent } from './components/main-home-layout/main-home-layout.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
 
   {
     path: 'auth',
+    component:MainHomeLayoutComponent,
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
 
   {
     path: 'admin',
+    component: AuthLayoutComponent,
+
     loadChildren: () =>
       import('./features/admin/admin.module').then((m) => m.AdminModule),
     canActivate: [AuthGuard],
@@ -20,6 +25,8 @@ const routes: Routes = [
 
   {
     path: 'chef',
+    component: AuthLayoutComponent,
+
     loadChildren: () =>
       import('./features/chef/chef.module').then((m) => m.ChefModule),
     canActivate: [AuthGuard],
@@ -28,6 +35,7 @@ const routes: Routes = [
 
   {
     path: 'customer',
+    component: AuthLayoutComponent,
     loadChildren: () =>
       import('./features/customer/customer.module').then(
         (m) => m.CustomerModule
