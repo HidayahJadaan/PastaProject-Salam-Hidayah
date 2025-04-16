@@ -6,91 +6,21 @@ export const users: User[] = [
     name: 'Hidayah Jadaan',
     email: 'hidayah@gmail.com',
     password: '123',
-    create_at: new Date('2025-03-14'),
+    type: 'admin',
   },
   {
     id: 'usr-2',
     name: 'Abdullah Omar',
     email: 'abd@gmail.com',
     password: '123',
-    create_at: new Date('2025-03-15'),
+    type: 'chef',
   },
   {
     id: 'usr-3',
     name: 'Rana Yaha',
     email: 'ran@gmail.com',
     password: '123',
-    create_at: new Date('2025-03-16'),
-  },
-  {
-    id: 'usr-4',
-    name: 'Sayyad ALamer',
-    email: 'sad@gmail.com',
-    password: '123',
-    create_at: new Date('2025-03-14'),
-  },
-  {
-    id: 'usr-5',
-    name: 'Sayyad ALamer',
-    email: 'sad@gmail.com',
-    password: '123',
-    create_at: new Date('2025-03-14'),
-  },
-  {
-    id: 'usr-6',
-    name: 'Sayyad ALamer',
-    email: 'sad@gmail.com',
-    password: '123',
-    create_at: new Date('2025-03-14'),
-  },
-  {
-    id: 'usr-7',
-    name: 'Sayyad ALamer',
-    email: 'sad@gmail.com',
-    password: '123',
-    create_at: new Date('2025-03-14'),
-  },
-  {
-    id: 'usr-8',
-    name: 'Sayyad ALamer',
-    email: 'sad@gmail.com',
-    password: '123',
-    create_at: new Date('2025-03-14'),
-  },
-  {
-    id: 'usr-9',
-    name: 'Sayyad ALamer',
-    email: 'sad@gmail.com',
-    password: '123',
-    create_at: new Date('2025-03-14'),
-  },
-  {
-    id: 'usr-10',
-    name: 'Sayyad ALamer',
-    email: 'sad@gmail.com',
-    password: '123',
-    create_at: new Date('2025-03-14'),
-  },
-  {
-    id: 'usr-11',
-    name: 'Sayyad ALamer',
-    email: 'sad@gmail.com',
-    password: '123',
-    create_at: new Date('2025-03-14'),
-  },
-  {
-    id: 'usr-12',
-    name: 'Sayyad ALamer',
-    email: 'sad@gmail.com',
-    password: '123',
-    create_at: new Date('2025-03-14'),
-  },
-  {
-    id: 'usr-13',
-    name: 'Sayyad ALamer',
-    email: 'sad@gmail.com',
-    password: '123',
-    create_at: new Date('2025-03-14'),
+    type: 'customer',
   },
 ];
 
@@ -122,7 +52,6 @@ export const addUser = (user: User): Promise<User> => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       user.id = 'usr-' + (users.length + 1);
-      user.create_at = new Date();
       users.push(user);
       resolve(user);
     }, 1500);
@@ -150,7 +79,6 @@ export const updateUsers = (userUpadet: User): Promise<User> => {
       );
       if (userIndex != -1) {
         const user = (users[userIndex] = { ...userUpadet });
-        user.upadeeted_at = new Date();
         resolve(user);
       } else {
         reject('User dose not exist');

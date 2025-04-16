@@ -13,27 +13,29 @@
       <th>Name</th>
       <th>Email</th>
       <th>Password</th>
-      <th>Creat At</th>
+      <th>User Type</th>
       <th>Action</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users; let i = index">
-      <td>{{ user.id }}</td>
-      <td>{{ user.name | capitlize }}</td>
-      <td>{{ user.email }}</td>
-      <td>{{ user.password | hidePassword : "*" }}</td>
-      <td>{{ user.create_at | date : "dd,MM,yyyy" }}</td>
-      <div class="action">
-        <button class="cursor-ponter" (click)="editUser(user)">Edit</button>
-        <button class="cursor-ponter" routerLink="/users/details/{{ user.id }}">
-          Detalis
-        </button>
-        <button class="cursor-ponter" (click)="deletUserClick(user)">
-          Delete
-        </button>
-      </div>
-    </tr>
+   <tr *ngFor="let user of users; let i = index">
+  <td>{{ user.id }}</td>
+  <td>{{ user.name | capitlize }}</td>
+  <td>{{ user.email }}</td>
+  <td>{{ user.password | hidePassword : "*" }}</td>
+  <td>{{ user.type }}</td>
+  <td class="action">
+    <button class="cursor-ponter" (click)="editUser(user)">Edit</button>
+    <button class="cursor-ponter" [routerLink]="['/users/details', user.id]">
+      Details
+    </button>
+    <button class="cursor-ponter" (click)="deletUserClick(user)">
+      Delete
+    </button>
+  </td>
+</tr>
+
+
   </tbody>
 </table>
 

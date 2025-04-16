@@ -23,115 +23,26 @@ export class UserService {
           email: 'hidayah@gmail.com',
           password: '123',
           type: 'admin',
-          create_at: new Date('2025-03-14'),
+         
         },
         {
           id: 'usr-2',
           name: 'Abdullah Omar',
           email: 'abd@gmail.com',
           password: '123',
-          type: 'user',
-          create_at: new Date('2025-03-15'),
+          type: 'chef',
+         
         },
         {
           id: 'usr-3',
           name: 'Rana Yaha',
           email: 'ran@gmail.com',
           password: '123',
-          type: 'user',
+          type: 'customer',
 
-          create_at: new Date('2025-03-16'),
+         
         },
-        {
-          id: 'usr-4',
-          name: 'Sayyad ALamer',
-          email: 'sad@gmail.com',
-          password: '123',
-          type: 'user',
-
-          create_at: new Date('2025-03-14'),
-        },
-        {
-          id: 'usr-5',
-          name: 'Sayyad ALamer',
-          email: 'sad@gmail.com',
-          password: '123',
-          type: 'user',
-
-          create_at: new Date('2025-03-14'),
-        },
-        {
-          id: 'usr-6',
-          name: 'Sayyad ALamer',
-          email: 'sad@gmail.com',
-          password: '123',
-          type: 'user',
-
-          create_at: new Date('2025-03-14'),
-        },
-        {
-          id: 'usr-7',
-          name: 'Sayyad ALamer',
-          email: 'sad@gmail.com',
-          password: '123',
-          type: 'user',
-
-          create_at: new Date('2025-03-14'),
-        },
-        {
-          id: 'usr-8',
-          name: 'Sayyad ALamer',
-          email: 'sad@gmail.com',
-          password: '123',
-          type: 'user',
-
-          create_at: new Date('2025-03-14'),
-        },
-        {
-          id: 'usr-9',
-          name: 'Sayyad ALamer',
-          email: 'sad@gmail.com',
-          password: '123',
-          type: 'user',
-
-          create_at: new Date('2025-03-14'),
-        },
-        {
-          id: 'usr-10',
-          name: 'Sayyad ALamer',
-          email: 'sad@gmail.com',
-          password: '123',
-          type: 'user',
-
-          create_at: new Date('2025-03-14'),
-        },
-        {
-          id: 'usr-11',
-          name: 'Sayyad ALamer',
-          email: 'sad@gmail.com',
-          password: '123',
-          type: 'user',
-
-          create_at: new Date('2025-03-14'),
-        },
-        {
-          id: 'usr-12',
-          name: 'Sayyad ALamer',
-          email: 'sad@gmail.com',
-          password: '123',
-          type: 'user',
-
-          create_at: new Date('2025-03-14'),
-        },
-        {
-          id: 'usr-13',
-          name: 'Sayyad ALamer',
-          email: 'sad@gmail.com',
-          password: '123',
-          type: 'user',
-
-          create_at: new Date('2025-03-14'),
-        },
+       
       ];
 
       // localStorage.clear();
@@ -182,7 +93,7 @@ export class UserService {
           ) || ''
         );
         user.id = 'usr-' + (users.length + 1);
-        user.create_at = new Date();
+      
         users.push(user);
         this.storageService.setItemInLocalStorage(
           USERS_LOCAL_STORAGE_KEY,
@@ -225,7 +136,7 @@ export class UserService {
         );
         if (userIndex != -1) {
           const user = (users[userIndex] = { ...userUpadet });
-          user.upadeeted_at = new Date();
+         
           this.storageService.setItemInLocalStorage(
             USERS_LOCAL_STORAGE_KEY,
             JSON.stringify(users)
