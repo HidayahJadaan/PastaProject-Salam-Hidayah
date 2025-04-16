@@ -14,18 +14,20 @@ export class AuthHeaderComponent {
   constructor(private authService:AuthServiceService){}
 
   logoutClick(): void {
-    // const remember = JSON.parse(localStorage.getItem('remember-me') ||'');
-
-    // if (remember == 'true') {
-    //   localStorage.removeItem('current-user');
-    // } else {
-    //   sessionStorage.removeItem('current-user');
-    // }
-
-    // this.router.navigate(['login']);
-
+   
 
     this.authService.logout();
     
   }
+
+  getUserCredentials():any{
+    let userCred = this.authService.getCurrentUser();
+    // console.log(userName.name);
+    return userCred;
+
+  }
+
+
+
+
 }

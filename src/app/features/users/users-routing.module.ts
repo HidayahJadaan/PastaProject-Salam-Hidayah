@@ -6,6 +6,7 @@ import { UsersFormComponent } from './components/users-form/users-form.component
 import { UsersDetailsComponent } from './components/users-details/users-details.component';
 import { CanActivateUserType } from '../../guards/user-type.guard';
 import { checkUserType } from './guards/user-type-fn.guard';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 const routes: Routes = [
   {
@@ -28,11 +29,15 @@ const routes: Routes = [
     path: 'edit/:id',
     component: UsersFormComponent,
     // canActivate: [CanActivateUserType],
-    canActivate:[checkUserType]
+    // canActivate:[checkUserType]
   },
   {
     path: 'details/:id',
     component: UsersDetailsComponent,
+  },
+  {
+    path: ':id/profile',
+    component: UserProfileComponent,
   },
 ];
 

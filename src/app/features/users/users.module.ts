@@ -8,13 +8,15 @@ import { UsersDetailsComponent } from './components/users-details/users-details.
 import { SharedModule } from "../shared/shared.module";
 import { FormsModule } from '@angular/forms';
 import { UserService } from './services/user.service';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 
 @NgModule({
   declarations: [
     UsersListComponent,
     UsersFormComponent,
-    UsersDetailsComponent
+    UsersDetailsComponent,
+    UserProfileComponent
   ],
   imports: [
     CommonModule,

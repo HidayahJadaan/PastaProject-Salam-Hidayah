@@ -41,6 +41,25 @@ export class AuthServiceService {
     });
   }
 
+getCurrentUser():any {
+    
+      const remember = JSON.parse(
+        localStorage.getItem('remember-me') || 'false'
+      );
+      if (remember) {
+        const currentUser = JSON.parse(localStorage.getItem('current-user')||'')
+        return currentUser;
+      } else {
+         const currentUser = JSON.parse(
+           sessionStorage.getItem('current-user') || ''
+         );
+         return currentUser;
+      
+      }
+      
+    
+  }
+
   isAuthenticated(): boolean {
     return (
       !!localStorage.getItem('current-user') ||

@@ -1,9 +1,12 @@
-
 <header>
-    <div>
-      <h1> Users System
-    </h1>  </div>
-    <div>
-        <button (click)="logoutClick()">Logout</button>
-    </div>
+  <div>
+    <h1>Users System</h1>
+  </div>
+  <div>
+   <button class="cursor-ponter" [routerLink]="['/users', getUserCredentials().id, 'profile']">
+    {{getUserCredentials().name}}
+    </button>
+
+    <button (click)="logoutClick()">Logout</button>
+  </div>
 </header>
