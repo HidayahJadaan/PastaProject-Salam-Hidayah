@@ -23,7 +23,6 @@ export class UserService {
           email: 'hidayah@gmail.com',
           password: '123',
           type: 'admin',
-         
         },
         {
           id: 'usr-2',
@@ -31,7 +30,6 @@ export class UserService {
           email: 'abd@gmail.com',
           password: '123',
           type: 'chef',
-         
         },
         {
           id: 'usr-3',
@@ -39,10 +37,7 @@ export class UserService {
           email: 'heba@gmail.com',
           password: '123',
           type: 'customer',
-
-         
         },
-       
       ];
 
       // localStorage.clear();
@@ -93,7 +88,7 @@ export class UserService {
           ) || ''
         );
         user.id = 'usr-' + (users.length + 1);
-      
+
         users.push(user);
         this.storageService.setItemInLocalStorage(
           USERS_LOCAL_STORAGE_KEY,
@@ -136,7 +131,7 @@ export class UserService {
         );
         if (userIndex != -1) {
           const user = (users[userIndex] = { ...userUpadet });
-         
+
           this.storageService.setItemInLocalStorage(
             USERS_LOCAL_STORAGE_KEY,
             JSON.stringify(users)
@@ -197,21 +192,41 @@ export class UserService {
     });
   }
 
-  validateUserForm(name:string, email:string, password:string):string[]{
+  validateUserForm(name: string, email: string, password: string): string[] {
+    const errors: string[] = [];
 
-    const errors:string[]=[];
-
-      if (!name.trim()) {
-        errors.push('Name is required');
-      }
-      if (!email.trim()) {
-        errors.push('Emaill Address is required');
-      }
-      if (!password.trim()) {
-        errors.push('Password is required');
-      }
-return errors;
+    if (!name.trim()) {
+      errors.push('Name is required');
+    }
+    if (!email.trim()) {
+      errors.push('Emaill Address is required');
+    }
+    if (!password.trim()) {
+      errors.push('Password is required');
+    }
+    return errors;
   }
 
+  registerUser = (user: User): Promise<User> => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+         const users: User[] = JSON.parse(
+           this.storageService.getItemFromLocalStorage(
+             USERS_LOCAL_STORAGE_KEY
+           ) || ''
+         );
+        const existingUser = users.find((u: User) => u.email === user.email);
+        if (existingUser) {
+          return reject('Email already in use');
+        }
+
+        user.id = 'usr-' + (users.length + 1);
+       
+
+        users.push(user);
+        resolve(user);
+      }, 2000);
+    });
+  };
 }
 

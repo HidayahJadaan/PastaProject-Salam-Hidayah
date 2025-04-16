@@ -1,6 +1,11 @@
 <header>
   <div>
-    <h1>Users System</h1>
+    <ul>
+      <li [routerLink]="['/auth']">Home</li>
+      <li [routerLink]="['/main-menu']">Menu</li>
+      <li [routerLink]="['/about-us']">About US</li>
+      <li [routerLink]="['/contact-us']">Contuct US</li>
+    </ul>
   </div>
   <div>
    <button class="cursor-ponter" [routerLink]="['/users', getUserCredentials().id, 'profile']">

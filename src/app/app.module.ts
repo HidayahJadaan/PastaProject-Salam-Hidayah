@@ -8,6 +8,7 @@ import { MainHomeLayoutComponent } from './components/main-home-layout/main-home
 import { MainNavbarComponent } from './components/main-navbar/main-navbar.component';
 import { AboutUsComponent } from './components/pages/about-us/about-us.component';
 import { ContactUsComponent } from './components/pages/contact-us/contact-us.component';
+import { MainMenuComponent } from './components/pages/main-menu/main-menu.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ContactUsComponent } from './components/pages/contact-us/contact-us.com
     MainHomeLayoutComponent,
     MainNavbarComponent,
     AboutUsComponent,
-    ContactUsComponent
+    ContactUsComponent,
+    MainMenuComponent
   ],
   imports: [
     BrowserModule,

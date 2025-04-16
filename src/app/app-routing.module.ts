@@ -5,6 +5,7 @@ import { AuthLayoutComponent } from './features/shared/components/auth-layout/au
 import { MainHomeLayoutComponent } from './components/main-home-layout/main-home-layout.component';
 import { AboutUsComponent } from './components/pages/about-us/about-us.component';
 import { ContactUsComponent } from './components/pages/contact-us/contact-us.component';
+import { MainMenuComponent } from './components/pages/main-menu/main-menu.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
@@ -50,6 +51,7 @@ const routes: Routes = [
     component: MainHomeLayoutComponent, 
     children: [
       { path: 'about-us', component: AboutUsComponent },
+      { path: 'main-menu', component: MainMenuComponent },
       { path: 'contact-us', component: ContactUsComponent },
     ],
   },

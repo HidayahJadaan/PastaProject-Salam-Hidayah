@@ -13,21 +13,24 @@ import { AuthServiceService } from '../../features/shared/services/auth-service.
   styleUrl: './login.component.scss',
 })
 export class LoginComponent implements OnInit {
+  userName: string = '';
   email: string = '';
   password: string = '';
   error: string = '';
   rememberMe: boolean = false;
   success: boolean = false;
+  isLogin: boolean = true; // default is login mode
 
   constructor(
     private router: Router,
     private authService: AuthServiceService
   ) {}
+
   ngOnInit(): void {
     const remember = JSON.parse(localStorage.getItem('remember-me') || 'false');
-
     let currentUser = null;
-    if (remember == 'true') {
+
+    if (remember == true) {
       currentUser = JSON.parse(localStorage.getItem('current-user') || '');
     } else {
       currentUser = JSON.parse(sessionStorage.getItem('current-user') || '');
@@ -38,48 +41,86 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  userLogin(): void {
+  submitForm(): void {
     this.error = '';
     this.success = false;
 
-    if (this.email.trim() && this.password.trim()) {
-      this.success = true;
-      this.authService
-        .loginUser(this.email, this.password)
-        .then((user: User) => {
-          this.success = false;
-          console.log(this.email);
+    if (!this.email.trim() || !this.password.trim()) {
+      this.error = 'Email and password are required.';
+      return;
+    }
 
-          alert(`Welcome user:${user.name}`);
-
-          localStorage.setItem('remember-me', JSON.stringify(this.rememberMe));
-
-          const userToSave = {
-            id: user.id,
-            name: user.name,
-            email: user.email,
-            type: user.type,
-            password: user.password,
-          };
-
-          if (this.rememberMe) {
-            localStorage.setItem('current-user', JSON.stringify(userToSave));
-          } else {
-            sessionStorage.setItem('current-user', JSON.stringify(userToSave));
-          }
-
-          this.redirectUser(user);
-        })
-        .catch((error: string) => {
-          this.success = false;
-          this.error = error;
-        });
+    if (this.isLogin) {
+      this.loginUser();
     } else {
-      this.error = 'Invalid Email and Password';
+      this.registerNewUser();
     }
   }
 
-  redirectUser(user: any) {
+  loginUser(): void {
+    this.success = true;
+    this.authService
+      .loginUser(this.email, this.password)
+      .then((user: User) => {
+        this.success = false;
+        alert(`Welcome back, ${user.name}`);
+        localStorage.setItem('remember-me', JSON.stringify(this.rememberMe));
+        this.saveUserSession(user);
+        this.redirectUser(user);
+      })
+      .catch((error: string) => {
+        this.success = false;
+        this.error = error;
+      });
+  }
+
+  registerNewUser(): void {
+    if (!this.userName.trim()) {
+      this.error = 'Name is required for registration.';
+      return;
+    }
+
+    const users = localStorage.getItem('users-data') || '';
+    console.log(users);
+    
+    const newUser: User = {
+      id: 'user-'+(users.length+1),
+      name: this.userName,
+      email: this.email,
+      password: this.password,
+      type: 'customer',
+    };
+
+    this.authService
+      .registerUser(newUser)
+      .then((user: User) => {
+        alert(`Registration successful! Welcome ${user.name}`);
+        localStorage.setItem('remember-me', JSON.stringify(this.rememberMe));
+        this.saveUserSession(user);
+        this.redirectUser(user);
+      })
+      .catch((error: string) => {
+        this.error = error;
+      });
+  }
+
+  saveUserSession(user: User): void {
+    const userToSave = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      type: user.type,
+      password: user.password,
+    };
+
+    if (this.rememberMe) {
+      localStorage.setItem('current-user', JSON.stringify(userToSave));
+    } else {
+      sessionStorage.setItem('current-user', JSON.stringify(userToSave));
+    }
+  }
+
+  redirectUser(user: any): void {
     if (user.type === 'admin') {
       this.router.navigate(['/admin']);
     } else if (user.type === 'chef') {
@@ -88,5 +129,12 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/customer']);
     }
   }
-  
+
+
+  toggleLoginRegister(): void {
+    
+    this.isLogin = !this.isLogin;
+    this.error = '';
+    this.success = false;
+  }
 }

@@ -9,7 +9,6 @@ const USERS_LOCAL_STORAGE_KEY = 'users-data';
 })
 export class AuthServiceService {
   constructor(private router: Router, private userService: UserService) {
-
     this.userService.fillData();
   }
 
@@ -17,11 +16,11 @@ export class AuthServiceService {
     // const remember = JSON.parse(localStorage.getItem('remember-me') || '');
 
     // if (remember == 'true') {
-      localStorage.removeItem('current-user');
-      localStorage.removeItem('remember-me');
-      // } else {
-        sessionStorage.removeItem('current-user');
-        sessionStorage.removeItem('remember-me');
+    localStorage.removeItem('current-user');
+    localStorage.removeItem('remember-me');
+    // } else {
+    sessionStorage.removeItem('current-user');
+    sessionStorage.removeItem('remember-me');
     // }
 
     this.router.navigate(['auth']);
@@ -41,23 +40,28 @@ export class AuthServiceService {
     });
   }
 
-getCurrentUser():any {
+  // ================================
+  registerUser(user: User): Promise<User> {
+   return this.userService.registerUser(user).then((user: User) => {
     
-      const remember = JSON.parse(
-        localStorage.getItem('remember-me') || 'false'
+     return user;
+   });
+  }
+
+  // ====================================
+  getCurrentUser(): any {
+    const remember = JSON.parse(localStorage.getItem('remember-me') || 'false');
+    if (remember) {
+      const currentUser = JSON.parse(
+        localStorage.getItem('current-user') || ''
       );
-      if (remember) {
-        const currentUser = JSON.parse(localStorage.getItem('current-user')||'')
-        return currentUser;
-      } else {
-         const currentUser = JSON.parse(
-           sessionStorage.getItem('current-user') || ''
-         );
-         return currentUser;
-      
-      }
-      
-    
+      return currentUser;
+    } else {
+      const currentUser = JSON.parse(
+        sessionStorage.getItem('current-user') || ''
+      );
+      return currentUser;
+    }
   }
 
   isAuthenticated(): boolean {
