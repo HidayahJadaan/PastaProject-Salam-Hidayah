@@ -3,13 +3,21 @@
     <ul>
       <li [routerLink]="['/auth']">Home</li>
       <li [routerLink]="['/main-menu']">Menu</li>
-      <li [routerLink]="['/about-us']">About US</li>
-      <li [routerLink]="['/contact-us']">Contuct US</li>
+      <li [routerLink]="['/about-us']">About Us</li>
+      <li [routerLink]="['/contact-us']">Contact Us</li>
     </ul>
   </div>
-  <div>
-    <button class="cursor-ponter" [routerLink]="['/auth', 'login']">
-      Login
-    </button>
+
+  <div *ngIf="isLogin; else notLoggedIn">
+    <span>Welcome, {{ userName }}</span>
+    <button (click)="logout()" class="logout-btn">Logout</button>
   </div>
+
+  <ng-template #notLoggedIn>
+    <div>
+      <button class="cursor-pointer" [routerLink]="['/auth', 'login']">
+        Login
+      </button>
+    </div>
+  </ng-template>
 </header>

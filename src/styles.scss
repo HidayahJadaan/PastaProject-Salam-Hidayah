@@ -28,6 +28,10 @@ body{
     margin: 10px;
 }
 
+button{
+        cursor: pointer;
+
+}
 .form-control{
     padding: 5px;
     display: flex;
@@ -108,4 +112,8 @@ ul{
     }
 }
 
+.logout-btn{
+    background-color: yellow;
+    cursor: pointer;
+}
     // navbar ==============================

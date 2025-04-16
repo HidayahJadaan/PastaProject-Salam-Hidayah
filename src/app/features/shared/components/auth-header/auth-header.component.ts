@@ -10,24 +10,21 @@ import { AuthServiceService } from '../../services/auth-service.service';
 })
 export class AuthHeaderComponent {
   // constructor(private router: Router) {}
+  isLogin: boolean = false;
+  userName: string | null = null;
 
-  constructor(private authService:AuthServiceService){}
+  constructor(private authService: AuthServiceService) {}
+  ngOnInit(): void {
+    const user = this.authService.getCurrentUser();
+    if (user) {
+      this.isLogin = true;
+      this.userName = user.name;
+    }
+  }
 
-  logoutClick(): void {
-   
-
+  logout(): void {
     this.authService.logout();
-    
+    this.isLogin = false;
+    this.userName = null;
   }
-
-  getUserCredentials():any{
-    let userCred = this.authService.getCurrentUser();
-    // console.log(userName.name);
-    return userCred;
-
-  }
-
-
-
-
 }

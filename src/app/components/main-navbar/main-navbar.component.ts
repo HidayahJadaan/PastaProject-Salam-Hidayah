@@ -8,18 +8,24 @@ import { AuthServiceService } from '../../features/shared/services/auth-service.
   templateUrl: './main-navbar.component.html',
   styleUrl: './main-navbar.component.scss',
 })
-export class MainNavbarComponent implements OnInit{
+export class MainNavbarComponent implements OnInit {
   isLogin: boolean = false;
-  constructor(private authService:AuthServiceService){}
+  userName: string | null = null;
+
+  constructor(private authService: AuthServiceService) {}
   ngOnInit(): void {
-   console.log(
-    this.authService.getCurrentUser());
-   
+    const user = this.authService.getCurrentUser();
+    if (user) {
+      this.isLogin = true;
+      this.userName = user.name;
+    }
+  }
+
+  logout(): void {
+    this.authService.logout(); 
+    this.isLogin = false;
+    this.userName = null;
     
   }
 
-  checkIfIsLogin(): void {
-
-    
-  }
 }
