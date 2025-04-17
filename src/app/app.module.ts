@@ -10,6 +10,7 @@ import { AboutUsComponent } from './components/pages/about-us/about-us.component
 import { ContactUsComponent } from './components/pages/contact-us/contact-us.component';
 import { MainMenuComponent } from './components/pages/main-menu/main-menu.component';
 import { HomePageComponent } from './components/pages/home-page/home-page.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HomePageComponent } from './components/pages/home-page/home-page.compon
     AboutUsComponent,
     ContactUsComponent,
     MainMenuComponent,
-    HomePageComponent
+    HomePageComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,

@@ -7,13 +7,14 @@ import { AboutUsComponent } from './components/pages/about-us/about-us.component
 import { ContactUsComponent } from './components/pages/contact-us/contact-us.component';
 import { MainMenuComponent } from './components/pages/main-menu/main-menu.component';
 import { HomePageComponent } from './components/pages/home-page/home-page.component';
+import { LoginComponent } from './components/pages/login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
 
   {
     path: 'auth',
-    component: MainHomeLayoutComponent,
+    component: LoginComponent,
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
 

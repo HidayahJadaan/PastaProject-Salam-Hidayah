@@ -1,1 +1,64 @@
-<p>chef-profile works!</p>
+<div class="head">
+  <h3>Chef Profile</h3>
+  <div>
+    <button *ngIf="!isEditing" (click)="editUserProfileInfo()">Edit Info</button>
+  </div>
+</div>
+
+<div class="user-detalis">
+  <div class="form">
+
+    <!-- Loading Indicator -->
+    <div class="success" *ngIf="loading">
+      <img src="/loader.gif" width="30px" />
+      Getting User details ...
+    </div>
+
+    <!-- Error Message -->
+    <div class="error" *ngIf="error">
+      {{ error }}
+    </div>
+
+    <!-- User Info Display / Edit Mode -->
+    <div *ngIf="user && !loading">
+
+      <div class="form-control">
+        <label>Name</label>
+        <ng-container *ngIf="!isEditing; else editName">
+          <span>{{ user.name }}</span>
+        </ng-container>
+        <ng-template #editName>
+          <input [(ngModel)]="user.name" type="text" />
+        </ng-template>
+      </div>
+
+      <div class="form-control">
+        <label>Email Address</label>
+        <ng-container *ngIf="!isEditing; else editEmail">
+          <span>{{ user.email }}</span>
+        </ng-container>
+        <ng-template #editEmail>
+          <input [(ngModel)]="user.email" type="email" />
+        </ng-template>
+      </div>
+
+      <div class="form-control">
+        <label>Password</label>
+        <ng-container *ngIf="!isEditing; else editPassword">
+          <span>{{ user.password}}</span>
+        </ng-container>
+        <ng-template #editPassword>
+          <input [(ngModel)]="user.password" type="password" />
+        </ng-template>
+      </div>
+
+      <!-- Save / Cancel Buttons -->
+      <div *ngIf="isEditing" class="actions">
+        <button (click)="saveChanges()">Save</button>
+        <button (click)="cancelEdit()">Cancel</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>

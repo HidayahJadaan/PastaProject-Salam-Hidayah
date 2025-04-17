@@ -18,21 +18,21 @@ export class UserService {
     if (!filled_status) {
       const users: User[] = [
         {
-          id: 'usr-1',
+          id: '1',
           name: 'Hidayah Jadaan',
           email: 'hidayah@gmail.com',
           password: '123',
           type: 'admin',
         },
         {
-          id: 'usr-2',
+          id: '2',
           name: 'Abdullah Omar',
           email: 'abd@gmail.com',
           password: '123',
           type: 'chef',
         },
         {
-          id: 'usr-3',
+          id: '3',
           name: 'Heba Khalil',
           email: 'heba@gmail.com',
           password: '123',
@@ -87,7 +87,7 @@ export class UserService {
             USERS_LOCAL_STORAGE_KEY
           ) || ''
         );
-        user.id = 'usr-' + (users.length + 1);
+        user.id = ''+(users.length + 1);
 
         users.push(user);
         this.storageService.setItemInLocalStorage(
@@ -220,7 +220,7 @@ export class UserService {
           return reject('Email already in use');
         }
 
-        user.id = 'usr-' + (users.length + 1);
+        user.id = ''+(users.length + 1);
        
 
         users.push(user);

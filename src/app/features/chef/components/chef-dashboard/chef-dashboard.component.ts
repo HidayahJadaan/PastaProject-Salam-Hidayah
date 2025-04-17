@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ChefService } from '../../services/chef.service';
 
 @Component({
   selector: 'app-chef-dashboard',
@@ -6,6 +7,11 @@ import { Component } from '@angular/core';
   templateUrl: './chef-dashboard.component.html',
   styleUrl: './chef-dashboard.component.scss'
 })
-export class ChefDashboardComponent {
+export class ChefDashboardComponent implements OnInit{
+  constructor(private chefsServics:ChefService){}
+  ngOnInit(): void {
+    
+    this.chefsServics.fillData();
+  }
 
 }

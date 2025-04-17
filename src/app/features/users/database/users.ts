@@ -2,21 +2,21 @@ import PaginatedResponse from '../../shared/models/paginated-response.model';
 import User from '../models/user.model';
 export const users: User[] = [
   {
-    id: 'usr-1',
+    id: '1',
     name: 'Hidayah Jadaan',
     email: 'hidayah@gmail.com',
     password: '123',
     type: 'admin',
   },
   {
-    id: 'usr-2',
+    id: '2',
     name: 'Abdullah Omar',
     email: 'abd@gmail.com',
     password: '123',
     type: 'chef',
   },
   {
-    id: 'usr-3',
+    id: '3',
     name: 'Heba Khalil',
     email: 'heba@gmail.com',
     password: '123',
@@ -51,7 +51,7 @@ export const getUser = (
 export const addUser = (user: User): Promise<User> => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      user.id = 'usr-' + (users.length + 1);
+      user.id = ''+(users.length + 1);
       users.push(user);
       resolve(user);
     }, 1500);

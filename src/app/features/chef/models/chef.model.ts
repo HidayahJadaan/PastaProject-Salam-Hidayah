@@ -1,8 +1,10 @@
 export interface Chef {
-  id: number;
-  name: string;
-  phone: string;
+  id: string;
+  name?: string;
+  phone?: string;
   email: string;
-  specialization: string;
-  branchId: number;
+  password: string;
+  specialization?: string;
+  branchId?: number;
+  type: string;
 }

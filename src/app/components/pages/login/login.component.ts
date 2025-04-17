@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 // import { loginUsers } from '../../features/users/database/users';
-import User from '../../features/users/models/user.model';
-import { AuthServiceService } from '../../features/shared/services/auth-service.service';
+import User from '../../../features/users/models/user.model';
+import { AuthServiceService } from '../../../features/shared/services/auth-service.service';
+import { LoaderService } from '../../../services/loader.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authService: AuthServiceService
+    private authService: AuthServiceService,
+    private loaderService: LoaderService
   ) {}
 
   ngOnInit(): void {
@@ -59,22 +61,29 @@ export class LoginComponent implements OnInit {
 
   loginUser(): void {
     this.success = true;
-    this.authService
-      .loginUser(this.email, this.password)
-      .then((user: User) => {
-        this.success = false;
-        alert(`Welcome back, ${user.name}`);
-        localStorage.setItem('remember-me', JSON.stringify(this.rememberMe));
-        this.saveUserSession(user);
-        this.redirectUser(user);
-      })
-      .catch((error: string) => {
-        this.success = false;
-        this.error = error;
-      });
+    this.loaderService.show();
+    setTimeout(() => {
+      this.authService
+        .loginUser(this.email, this.password)
+        .then((user: User) => {
+          this.success = false;
+          this.loaderService.hide();
+          alert(`Welcome back, ${user.name}`);
+          localStorage.setItem('remember-me', JSON.stringify(this.rememberMe));
+          this.saveUserSession(user);
+          this.redirectUser(user);
+        })
+        .catch((error: string) => {
+          this.success = false;
+          this.loaderService.hide();
+          this.error = error;
+        });
+    }, 100);
   }
 
   registerNewUser(): void {
+    this.loaderService.show();
+
     if (!this.userName.trim()) {
       this.error = 'Name is required for registration.';
       return;
@@ -82,26 +91,29 @@ export class LoginComponent implements OnInit {
 
     const users = localStorage.getItem('users-data') || '';
     console.log(users);
-    
+
     const newUser: User = {
-      id: 'user-'+(users.length+1),
+      id: '' + (users.length + 1),
       name: this.userName,
       email: this.email,
       password: this.password,
       type: 'customer',
     };
-
-    this.authService
-      .registerUser(newUser)
-      .then((user: User) => {
-        alert(`Registration successful! Welcome ${user.name}`);
-        localStorage.setItem('remember-me', JSON.stringify(this.rememberMe));
-        this.saveUserSession(user);
-        this.redirectUser(user);
-      })
-      .catch((error: string) => {
-        this.error = error;
-      });
+    setTimeout(() => {
+      this.authService
+        .registerUser(newUser)
+        .then((user: User) => {
+          alert(`Registration successful! Welcome ${user.name}`);
+          this.loaderService.hide();
+          localStorage.setItem('remember-me', JSON.stringify(this.rememberMe));
+          this.saveUserSession(user);
+          this.redirectUser(user);
+        })
+        .catch((error: string) => {
+          this.loaderService.hide();
+          this.error = error;
+        });
+    }, 100);
   }
 
   saveUserSession(user: User): void {
@@ -130,9 +142,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
   toggleLoginRegister(): void {
-    
     this.isLogin = !this.isLogin;
     this.error = '';
     this.success = false;

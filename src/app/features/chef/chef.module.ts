@@ -7,6 +7,8 @@ import { AddDishComponent } from './components/add-dish/add-dish.component';
 import { IngredientsManageComponent } from './components/ingredients-manage/ingredients-manage.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { ChefsRoutingModule } from './chefs-routing.module';
+import { FormsModule } from '@angular/forms';
+import { HidePasswordPipe } from '../shared/pipes/hide-password.pipe';
 
 
 
@@ -17,11 +19,9 @@ import { ChefsRoutingModule } from './chefs-routing.module';
     DishesListComponent,
     AddDishComponent,
     IngredientsManageComponent,
-    OrdersComponent
+    OrdersComponent,
+   
   ],
-  imports: [
-    CommonModule,
-    ChefsRoutingModule
-  ]
+  imports: [CommonModule, ChefsRoutingModule, FormsModule],
 })
-export class ChefModule { }
+export class ChefModule {}
