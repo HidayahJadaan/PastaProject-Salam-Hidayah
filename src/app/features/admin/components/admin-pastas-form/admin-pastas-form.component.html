@@ -1,1 +1,78 @@
-<p>admin-pastas-form works!</p>
+<div class="head">
+  <h3>Pasta {{ id ? 'Edit' : 'Add' }}</h3>
+  <div>
+    <a [routerLink]="['/admin', 'admin-pastas-list']">Pastas List</a>
+  </div>
+</div>
+
+<div class="user-form">
+  <div class="form">
+    <div>
+      <div class="success" *ngIf="loading">
+        <img src="/loader.gif" width="30px" />
+        Saving Pasta ...
+      </div>
+
+      <div class="success" *ngIf="loadingforGet">
+        <img src="/loader.gif" width="30px" />
+        Getting Pasta ...
+      </div>
+
+      <div class="success" *ngIf="success">
+        {{ success }}
+      </div>
+
+      <div class="error" *ngIf="errors.length">
+        <div *ngFor="let error of errors">{{ error }}</div>
+      </div>
+
+      <!-- Pasta Name -->
+      <div class="form-control">
+        <label>Name</label>
+        <input type="text" name="name" [(ngModel)]="name" />
+      </div>
+
+      <!-- Description -->
+      <div class="form-control">
+        <label>Description</label>
+        <textarea name="description" [(ngModel)]="description"></textarea>
+      </div>
+
+      <!-- Image URL -->
+     <div class="form-control">
+  <label>Upload Image</label>
+  <input type="file" (change)="onImageSelected($event)" />
+</div>
+
+<!-- Preview Selected Image -->
+<div *ngIf="imagePreview">
+  <p>Preview:</p>
+  <img [src]="imagePreview" width="150" style="border-radius: 10px;" />
+</div>
+
+
+      <!-- Price -->
+      <div class="form-control">
+        <label>Price</label>
+        <input type="number" name="price" [(ngModel)]="price" />
+      </div>
+
+      <!-- Pasta Type -->
+      <div class="form-control">
+        <label>Pasta Type</label>
+        <input type="text" name="pastaType" [(ngModel)]="pastaType" />
+      </div>
+
+      <!-- Dietary Info -->
+      <div class="form-control">
+        <label>Dietary Info</label>
+        <input type="text" name="dietaryInfo" [(ngModel)]="dietaryInfo" />
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-control">
+        <button (click)="savePasta()">{{ id ? 'Save' : 'Add' }}</button>
+      </div>
+    </div>
+  </div>
+</div>

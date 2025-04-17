@@ -1,1 +1,80 @@
-<p>admin-pastas-list works!</p>
+<div class="head">
+  <h3>Pastas Dishes List</h3>
+  <button [routerLink]="['/admin', 'pastas', 'add']" class="cursor-ponter">Add New Pasta</button>
+</div>
+
+<div class="success" *ngIf="loading">
+  <img src="/loader.gif" width="30px" />
+  loading Pastas
+</div>
+
+<table border="1" [width]="1400" *ngIf="!loading">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Decription</th>
+      <th>Type</th>
+      <th>Dietry Info</th>
+      <th>Price</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let dish of dishes; let i = index">
+      <tr>
+        <td>{{ dish.id }}</td>
+        <td>{{ dish.name }}</td>
+        <td>{{ dish.description }}</td>
+        <td>{{ dish.pastaType }}</td>
+        <td>{{ dish.dietaryInfo }}</td>
+        <td>{{ dish.price }}</td>
+       
+      </tr>
+
+    </ng-container>
+  </tbody>
+</table>
+
+<!-- Modal -->
+<!-- <div class="modal-backdrop" *ngIf="showModal">
+  <div class="modal">
+    <h3>Chefs List</h3>
+    <table *ngIf="selectedBranchChefs.length > 0">
+        <thead>
+            <tr>
+<th>Chef Name</th>
+        <th>Chef Email</th>
+        <th>Chef Phone</th>
+        <th>Chef Specialization</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let chef of selectedBranchChefs">
+                <td>{{chef.name}}</td>
+                <td>{{chef.email}}</td>
+                <td>{{chef.phone}}</td>
+                <td>{{chef.specialization}}</td>
+                
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="selectedBranchChefs.length === 0">No chefs found for this branch.</p>
+    <button (click)="closeModal()">Close</button>
+  </div>
+</div> -->
+
+
+currentPage = {{ currentPage }}
+
+<div class="pagination">
+  <a
+    *ngFor="let pageNo of pages"
+    [class.active]="currentPage === pageNo"
+    [routerLink]="['/admin','admin-pastas-list']"
+    [queryParams]="{ page: pageNo }"
+  >
+    {{ pageNo }}
+  </a>
+</div>

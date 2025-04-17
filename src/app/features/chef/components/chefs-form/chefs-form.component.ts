@@ -44,7 +44,7 @@ export class ChefsFormComponent implements OnInit {
           this.phone = user.phone;
           this.password = user.password;
           this.specialization = user.specialization;
-          this.branchId = user.branchId ??''
+          this.branchId = user.branchId ?? '';
         })
         .catch((erorr: string) => {
           this.loadingforGet = false;

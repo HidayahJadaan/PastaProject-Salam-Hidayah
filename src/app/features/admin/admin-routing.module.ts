@@ -20,8 +20,8 @@ const routes: Routes = [
   { path: 'branches/edit/:id', component: BranchFormComponent },
   { path: 'chefs', component: AdminChefsListComponent },
   { path: 'admin-pastas-list', component: AdminPastasListComponent },
-  { path: 'admin-pastas/add', component: AdminPastasFormComponent },
-  { path: 'admin-pastas/edit/:id', component: AdminPastasFormComponent },
+  { path: 'pastas/add', component: AdminPastasFormComponent },
+  // { path: 'pastas/edit/:id', component: AdminPastasFormComponent },
   { path: 'ingredients', component: AdminIngredientsComponent },
 ];
 

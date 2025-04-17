@@ -236,7 +236,7 @@ export class PastaService {
   validatePastaDishForm(
     name: string,
     desc: string,
-    image: string,
+    image: File | null,
     price: number,
     pastaType: string,
     dietryInfo: string
@@ -249,7 +249,7 @@ export class PastaService {
     if (!desc.trim()) {
       errors.push('Description is required');
     }
-    if (!image.trim()) {
+    if (!image) {
       errors.push('Phone is required');
     }
     if (!price) {
