@@ -4,7 +4,7 @@ export interface PastaDish {
   description: string;
   image: string;
   price: number;
-  chefId: number;
+  chefId?: number;
   pastaType: string;
   dietaryInfo: string;
 }

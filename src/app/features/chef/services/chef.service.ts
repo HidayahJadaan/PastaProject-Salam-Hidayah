@@ -10,14 +10,6 @@ const CHEFS_FILLED = 'chefs-filled';
 export class ChefService {
   constructor(private storageService: IihStorageService) {}
 
-  // getChefById(id: number): Chef | undefined {
-  //   return this.chefs.find((c) => c.id === id);
-  // }
-
-  // updateChef(id: number, data: Partial<Chef>) {
-  //   const chef = this.getChefById(id);
-  //   if (chef) Object.assign(chef, data);
-  // }
 
   // ================================
   fillData() {
