@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ChefService } from '../../services/chef.service';
 import { Chef } from '../../models/chef.model';
 import { UserService } from '../../../users/services/user.service';
+import User from '../../../users/models/user.model';
 
 @Component({
   selector: 'app-chefs-form',
@@ -23,6 +24,7 @@ export class ChefsFormComponent implements OnInit {
   phone: string = '';
   password: string = '';
   specialization: string = '';
+  branchId: string = '';
   loading: boolean = false;
   errors: string[] = [];
   success: string = '';
@@ -39,6 +41,10 @@ export class ChefsFormComponent implements OnInit {
           this.loadingforGet = false;
           this.name = user.name;
           this.email = user.email;
+          this.phone = user.phone;
+          this.password = user.password;
+          this.specialization = user.specialization;
+          this.branchId = user.branchId ??''
         })
         .catch((erorr: string) => {
           this.loadingforGet = false;
@@ -52,12 +58,14 @@ export class ChefsFormComponent implements OnInit {
     this.errors.length = 0; //reset data
     if (this.name.trim() && this.email.trim() && this.password.trim()) {
       //send data
-      const user: Chef = {
+      const user: any = {
         id: '' + Math.random(),
         name: this.name,
         phone: this.phone,
         email: this.email,
         password: this.password,
+        specialization: this.specialization,
+        branchId: this.branchId,
         type: 'chef',
       };
       this.loading = true;
@@ -76,6 +84,10 @@ export class ChefsFormComponent implements OnInit {
         this.chefsService.addChef(user).then((user: Chef) => {
           (this.loading = false), (this.success = 'Chef added successfully');
         });
+
+        this.usersService.addUser(user).then((user:User)=>{
+          this.loading = false;
+        })
       }
     } else {
       this.errors.push(
@@ -84,7 +96,8 @@ export class ChefsFormComponent implements OnInit {
           this.email,
           this.phone,
           this.password,
-          this.specialization
+          this.specialization,
+         
         )
       );
     }

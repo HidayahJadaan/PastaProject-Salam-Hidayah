@@ -35,6 +35,7 @@ ngOnInit(): void {
     this.loadingforGet=false;
       this.name=user.name;
       this.email=user.email; 
+      this.password=user.password; 
   })
   .catch((erorr:string)=>{ 
     this.loadingforGet=false;

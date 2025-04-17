@@ -11,6 +11,7 @@ import { ChefsFormComponent } from '../chef/components/chefs-form/chefs-form.com
 const routes: Routes = [
   { path: '', component: AdminDasboardComponent },
   { path: 'chefs/add', component: ChefsFormComponent },
+  { path: 'chefs/edit/:id', component: ChefsFormComponent },
   { path: 'profile', component: AdminProfileComponent },
   { path: 'branches', component: BranchesListComponent },
   { path: 'chefs', component: AdminChefsListComponent },

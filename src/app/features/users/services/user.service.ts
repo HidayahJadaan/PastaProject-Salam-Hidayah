@@ -182,6 +182,9 @@ export class UserService {
 
   loginUsers(email: string, password: string): Promise<User> {
     return new Promise((resolve, reject) => {
+      console.log(email);
+      console.log(password);
+      
       setTimeout(() => {
         const users: User[] = JSON.parse(
           localStorage.getItem(USERS_LOCAL_STORAGE_KEY) || '[]'

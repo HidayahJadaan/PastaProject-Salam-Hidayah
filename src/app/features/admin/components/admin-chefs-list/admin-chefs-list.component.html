@@ -15,6 +15,7 @@
     <tr>
       <th>ID</th>
       <th>Name</th>
+      <th>Email</th>
       <th>Phone</th>
       <th>BranchId</th>
       <th>Actions</th>
@@ -25,12 +26,13 @@
       <tr>
         <td>{{ chef.id }}</td>
         <td>{{ chef.name }}</td>
+        <td>{{ chef.email }}</td>
         <td>{{ chef.phone }}</td>
         <td>{{ chef.branchId }}</td>
         <td class="action">
-          <button class="cursor-ponter">Edit</button>
-          <button class="cursor-ponter">Details</button>
-          <button class="cursor-ponter">Delete</button>
+          <button class="cursor-ponter" (click)="chefEditClick(chef)">Edit</button>
+          <!-- <button class="cursor-ponter">Details</button> -->
+          <button class="cursor-ponter" (click)="handleDeleteChef(chef)">Delete</button>
           <button
             class="cursor-ponter"
           

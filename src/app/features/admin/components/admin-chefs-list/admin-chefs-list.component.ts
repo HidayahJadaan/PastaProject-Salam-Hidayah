@@ -48,7 +48,7 @@ export class AdminChefsListComponent implements OnInit {
   }
 
   loadChefs(): void {
-     this.loadingChefs = true;
+    this.loadingChefs = true;
     this.chefsService
       .getChefs(this.currentPage, this.pageSize)
       .then((response: PaginatedResponse<Chef>) => {
@@ -88,7 +88,6 @@ export class AdminChefsListComponent implements OnInit {
       .catch((error) => {
         console.error('Error fetching Branches:', error);
       });
-
   }
   // =========================================================
 
@@ -117,20 +116,23 @@ export class AdminChefsListComponent implements OnInit {
         })
         .catch((error) => {
           console.error('Invalid Chef Id:', error);
-        }).finally(() => {
-        this.loadingAssign = false;
-      });
-      // .assignChefToBranch(this.selectedChefId, this.selectedBranchId)
-      // .then(() => {
-      //   // Optionally refresh the list
-      //   this.loadChefs();
-      //   this.closeModal();
-      //   this.selectedChefId = null;
-      //   this.selectedBranchId = null;
-      // })
-      // .catch((error) => {
-      //   console.error('Failed to assign chef:', error);
-      // });
+        })
+        .finally(() => {
+          this.loadingAssign = false;
+        });
     }
+  }
+
+  chefEditClick(chef: Chef): void {
+    this.router.navigate(['/admin', 'chefs', 'edit', chef.id]);
+  }
+
+  handleDeleteChef(chef:Chef):void{
+
+    this.chefsService.deleteChef(chef)
+    .then(()=>{
+      alert('Chef '+chef.name+' Deleted Successfully');
+      this.loadChefs();
+    })
   }
 }
