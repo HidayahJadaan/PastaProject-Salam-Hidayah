@@ -52,7 +52,7 @@ export class UserService {
       );
     }
   }
-
+  // ========================================================
   getUser(page: number, pageSize: number): Promise<PaginatedResponse<User>> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -78,6 +78,7 @@ export class UserService {
       }, 1500);
     });
   }
+  // ========================================================
 
   addUser(user: User): Promise<User> {
     return new Promise((resolve, reject) => {
@@ -87,7 +88,7 @@ export class UserService {
             USERS_LOCAL_STORAGE_KEY
           ) || ''
         );
-        user.id = ''+(users.length + 1);
+        user.id = '' + (users.length + 1);
 
         users.push(user);
         this.storageService.setItemInLocalStorage(
@@ -99,6 +100,7 @@ export class UserService {
       }, 1500);
     });
   }
+  // ========================================================
 
   getUsers(id: string): Promise<User> {
     return new Promise((resolve, reject) => {
@@ -117,6 +119,7 @@ export class UserService {
       }, 1000);
     });
   }
+  // ========================================================
 
   updateUsers(userUpadet: User): Promise<User> {
     return new Promise((resolve, reject) => {
@@ -144,6 +147,8 @@ export class UserService {
       }, 1000);
     });
   }
+  // ========================================================
+
   deleteUser(userDeleted: User): Promise<boolean> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -173,6 +178,7 @@ export class UserService {
       }, 500);
     });
   }
+  // ========================================================
 
   loginUsers(email: string, password: string): Promise<User> {
     return new Promise((resolve, reject) => {
@@ -191,6 +197,7 @@ export class UserService {
       }, 1000);
     });
   }
+  // ========================================================
 
   validateUserForm(name: string, email: string, password: string): string[] {
     const errors: string[] = [];
@@ -206,22 +213,22 @@ export class UserService {
     }
     return errors;
   }
+  // ========================================================
 
   registerUser = (user: User): Promise<User> => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-         const users: User[] = JSON.parse(
-           this.storageService.getItemFromLocalStorage(
-             USERS_LOCAL_STORAGE_KEY
-           ) || ''
-         );
+        const users: User[] = JSON.parse(
+          this.storageService.getItemFromLocalStorage(
+            USERS_LOCAL_STORAGE_KEY
+          ) || ''
+        );
         const existingUser = users.find((u: User) => u.email === user.email);
         if (existingUser) {
           return reject('Email already in use');
         }
 
-        user.id = ''+(users.length + 1);
-       
+        user.id = '' + (users.length + 1);
 
         users.push(user);
         resolve(user);

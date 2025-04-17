@@ -9,6 +9,7 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { ChefsRoutingModule } from './chefs-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HidePasswordPipe } from '../shared/pipes/hide-password.pipe';
+import { ChefService } from './services/chef.service';
 
 
 
@@ -23,5 +24,6 @@ import { HidePasswordPipe } from '../shared/pipes/hide-password.pipe';
    
   ],
   imports: [CommonModule, ChefsRoutingModule, FormsModule],
+  providers:[{provide: ChefService, useClass:ChefService}]
 })
 export class ChefModule {}

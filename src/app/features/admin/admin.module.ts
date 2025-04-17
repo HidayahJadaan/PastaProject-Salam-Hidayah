@@ -7,6 +7,7 @@ import { AdminAddPastasComponent } from './components/admin-add-pastas/admin-add
 import { AdminIngredientsComponent } from './components/admin-ingredients/admin-ingredients.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,8 @@ import { AdminProfileComponent } from './components/admin-profile/admin-profile.
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    FormsModule
   ]
 })
 export class AdminModule { }

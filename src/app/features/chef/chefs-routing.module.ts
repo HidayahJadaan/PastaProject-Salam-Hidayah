@@ -6,10 +6,12 @@ import { DishesListComponent } from './components/dishes-list/dishes-list.compon
 import { AddDishComponent } from './components/add-dish/add-dish.component';
 import { IngredientsManageComponent } from './components/ingredients-manage/ingredients-manage.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { ChefsFormComponent } from './components/chefs-form/chefs-form.component';
 
 const routes: Routes = [
   { path: '', component: ChefDashboardComponent },
-  // { path: 'chef', component: ChefDashboardComponent },
+  // { path: 'add', component: ChefsFormComponent },
+  // { path: 'edit/:id', component: ChefsFormComponent },
   { path: 'profile', component: ChefProfileComponent },
   { path: 'dishes', component: DishesListComponent },
   { path: 'dishes/add', component: AddDishComponent },

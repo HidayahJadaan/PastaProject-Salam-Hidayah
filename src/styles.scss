@@ -76,6 +76,35 @@ button{
 
 
 
+    // pagination ==============================
+    
+    .pagination{
+        padding: 5px;
+        width: 100%;
+        text-align: center;
+        margin: 15px;
+            background: antiquewhite;
+
+        a{
+            margin: 5px;
+            text-decoration: none;
+            color: black;
+            padding: 15px;
+            cursor: pointer;
+
+
+            &.active{
+                font-weight: bold;
+                font-style: italic;
+                background: white;
+                border: 1px solid black;
+                cursor: default;
+            }
+        }
+    }
+
+    
+    // pagination ==============================
     // navbar ==============================
 
     header{

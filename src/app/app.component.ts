@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
         // delay hiding for smoother transition
         setTimeout(() => {
           this.loaderService.hide();
-        }, 2000);
+        }, 1500);
       }
     });
   }

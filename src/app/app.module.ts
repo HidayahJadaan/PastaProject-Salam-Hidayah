@@ -11,6 +11,7 @@ import { ContactUsComponent } from './components/pages/contact-us/contact-us.com
 import { MainMenuComponent } from './components/pages/main-menu/main-menu.component';
 import { HomePageComponent } from './components/pages/home-page/home-page.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { ChefsFormComponent } from './features/chef/components/chefs-form/chefs-form.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     ContactUsComponent,
     MainMenuComponent,
     HomePageComponent,
-    LoaderComponent
+    LoaderComponent,
+    ChefsFormComponent
   ],
   imports: [
     BrowserModule,

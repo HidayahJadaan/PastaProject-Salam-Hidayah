@@ -33,19 +33,19 @@ export class ChefService {
           email: 'amal@pasta.com',
           password: '123',
           specialization: 'Italian',
-          branchId: 1,
+          branchId: '1',
           type: 'chef',
         },
 
         {
           id: '2',
-          name: 'Abdullah Omar',
+          name: 'Chef Ahmad',
           phone: '0791234567',
-          email: 'abd@gmail.com',
+          email: 'ahmad@gmail.com',
           password: '123',
           type: 'chef',
           specialization: 'Italian',
-          branchId: 1,
+          branchId: '2',
         },
       ];
 
@@ -136,6 +136,23 @@ export class ChefService {
 
   // ================================
 
+  getChefsByBranch(branchId: string): Promise<Chef[]> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        const chefsData = this.storageService.getItemFromLocalStorage(
+          CHEFS_LOCAL_STORAGE_KEY
+        );
+        const chefs: Chef[] = JSON.parse(chefsData || '[]');
+        const filteredChefs = chefs.filter(
+          (c: Chef) => c.branchId === branchId
+        );
+        resolve(filteredChefs);
+      }, 500);
+    });
+  }
+
+  // ================================
+
   updateChefs(ChefUpadet: Chef): Promise<Chef> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -194,4 +211,26 @@ export class ChefService {
       }, 500);
     });
   }
+
+  validateChefForm(name: string, email: string,phone:string ,password: string, specialization:string): string[] {
+    const errors: string[] = [];
+
+    if (!name.trim()) {
+      errors.push('Name is required');
+    }
+    if (!email.trim()) {
+      errors.push('Emaill Address is required');
+    }
+    if (!phone.trim()) {
+      errors.push('Phone Address is required');
+    }
+    if (!specialization.trim()) {
+      errors.push('Specialization Address is required');
+    }
+    if (!password.trim()) {
+      errors.push('Password is required');
+    }
+    return errors;
+  }
+
 }

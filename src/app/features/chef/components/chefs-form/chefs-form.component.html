@@ -1,0 +1,52 @@
+<div class="head">
+      
+    <h3>Chef {{id ? 'Edit':'Add'}}</h3>
+    <div>
+        <a [routerLink]="['/admin','chefs']">Chefs List</a>
+    </div>
+   
+</div>
+<div class="user-form">
+    <div class="form">
+      
+        <div> 
+            <div class="success" *ngIf="loading">
+                <img src="/loader.gif" width="30px">
+                Saving User ...
+                </div>
+                <div class="success" *ngIf="loadingforGet">
+                    <img src="/loader.gif" width="30px">
+                    Getting User ...
+                    </div>
+                <div class="success" *ngIf="success">
+                  {{success}}
+                    </div>
+            <div class="error" *ngIf="errors.length">
+              <div *ngFor="let error of errors">{{error}}</div> <!--استخدمت لوب لانه بدي اطبع اري-->
+            </div>
+            <div class="form-control">
+                <label>Name</label>
+            <input type="text" name="name "[(ngModel)]="name">
+        </div>
+        <div class="form-control">
+            <label>Email Address</label>
+        <input type="text" name="email "[(ngModel)]="email">
+    </div>
+    <div class="form-control">
+  <label>Phone</label>
+  <input type="tel" name="phone" [(ngModel)]="phone">
+</div>
+        <div class="form-control"> 
+            <label>Password</label>
+            <input type="password" name="password"[(ngModel)]="password">
+        </div>
+         <div class="form-control">
+                <label>Specialization</label>
+            <input type="text" name="specialization "[(ngModel)]="specialization">
+        </div>
+        <div class="form-control">
+          <button (click)="userSave()">{{id ? 'Save':'Add'}}</button>
+        </div>
+    </div>
+</div> 
+</div> 

@@ -1,5 +1,7 @@
+
 export interface Branch {
-  id: number;
+  id: string;
   name: string;
   location: string;
+  chefs:string[];
 }
