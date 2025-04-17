@@ -7,6 +7,7 @@ import { AdminAddPastasComponent } from './components/admin-add-pastas/admin-add
 import { AdminIngredientsComponent } from './components/admin-ingredients/admin-ingredients.component';
 import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
 import { ChefsFormComponent } from '../chef/components/chefs-form/chefs-form.component';
+import { BranchFormComponent } from '../branch/components/branch-form/branch-form.component';
 
 const routes: Routes = [
   { path: '', component: AdminDasboardComponent },
@@ -14,6 +15,8 @@ const routes: Routes = [
   { path: 'chefs/edit/:id', component: ChefsFormComponent },
   { path: 'profile', component: AdminProfileComponent },
   { path: 'branches', component: BranchesListComponent },
+  { path: 'branches/add', component: BranchFormComponent },
+  { path: 'branches/edit/:id', component: BranchFormComponent },
   { path: 'chefs', component: AdminChefsListComponent },
   { path: 'admin-pastas-list', component: AdminAddPastasComponent },
   { path: 'ingredients', component: AdminIngredientsComponent },

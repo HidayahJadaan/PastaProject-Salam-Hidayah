@@ -4,7 +4,7 @@ import { ChefService } from '../../../chef/services/chef.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import PaginatedResponse from '../../../shared/models/paginated-response.model';
 import { BranchesService } from '../../../branch/services/branches.service';
-import { Branch } from '../../../branch/branch.model';
+import { Branch } from '../../../branch/models/branch.model';
 
 @Component({
   selector: 'app-admin-chefs-list',
@@ -127,12 +127,10 @@ export class AdminChefsListComponent implements OnInit {
     this.router.navigate(['/admin', 'chefs', 'edit', chef.id]);
   }
 
-  handleDeleteChef(chef:Chef):void{
-
-    this.chefsService.deleteChef(chef)
-    .then(()=>{
-      alert('Chef '+chef.name+' Deleted Successfully');
+  handleDeleteChef(chef: Chef): void {
+    this.chefsService.deleteChef(chef).then(() => {
+      alert('Chef ' + chef.name + ' Deleted Successfully');
       this.loadChefs();
-    })
+    });
   }
 }

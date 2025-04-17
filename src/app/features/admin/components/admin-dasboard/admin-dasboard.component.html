@@ -1,14 +1,18 @@
 <div class="admin-branches">
     <h2>List Of All Branches</h2>
     <a [routerLink]="['branches']">see more...</a>
-<button>Add New Branch</button>
+ <button [routerLink]="['/admin', 'branches', 'add']" class="cursor-ponter">
+    Add New Branch
+  </button>
 </div>
 
 <div class="admin-chefs">
     <h2>List of All Chefs</h2>
         <a [routerLink]="['chefs']">see more...</a>
 
-    <button>Add New Chef</button>
+     <button [routerLink]="['/admin', 'chefs', 'add']" class="cursor-ponter">
+    Add New Chef
+  </button>
 
 </div>
 <div class="admin-pastas">

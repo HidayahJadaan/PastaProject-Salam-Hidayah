@@ -1,0 +1,44 @@
+<!-- <h1>Add branch</h1> -->
+ <div class="head">
+      
+    <h3>Branch {{id ? 'Edit':'Add'}}</h3>
+     <div>
+        <a [routerLink]="['/admin','branches']">Branches List</a>
+    </div>
+   
+</div>
+<div class="user-form">
+    <div class="form">
+      
+        <div> 
+            <div class="success" *ngIf="loading">
+                <img src="/loader.gif" width="30px">
+                Saving Branch ...
+                </div>
+                <div class="success" *ngIf="loadingforGet">
+                    <img src="/loader.gif" width="30px">
+                    Getting Branch ...
+                    </div>
+                <div class="success" *ngIf="success">
+                  {{success}}
+                    </div>
+            <div class="error" *ngIf="errors.length">
+              <div *ngFor="let error of errors">{{error}}</div> 
+            </div>
+            <div class="form-control">
+                <label>Branch Name</label>
+            <input type="text" name="name "[(ngModel)]="Bname">
+        </div>
+        <div class="form-control">
+            <label>Branch Location</label>
+        <input type="text" name="location "[(ngModel)]="location">
+    </div>
+  
+        
+         
+        <div class="form-control">
+          <button (click)="branchSave()">{{id ? 'Save':'Add'}}</button>
+        </div>
+    </div>
+</div> 
+</div>  

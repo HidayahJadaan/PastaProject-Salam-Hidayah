@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BranchesService } from '../../../branch/services/branches.service';
-import { Branch } from '../../../branch/branch.model';
+import { Branch } from '../../../branch/models/branch.model';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import PaginatedResponse from '../../../shared/models/paginated-response.model';
 import { ChefService } from '../../../chef/services/chef.service';
@@ -84,5 +84,16 @@ export class BranchesListComponent {
       .catch((error) => {
         console.error('Error fetching chefs:', error);
       });
+  }
+
+  handleDeleteBranch(branch: Branch): void {
+    this.branchesService.deleteBranch(branch).then(() => {
+      alert('Branch ' + branch.name + ' Deleted Successfully');
+      this.loadBranches();
+    });
+  }
+  // ==================================================
+  handleEditBranch(branch:Branch):void{
+ this.router.navigate(['/admin', 'branches', 'edit', branch.id]);
   }
 }

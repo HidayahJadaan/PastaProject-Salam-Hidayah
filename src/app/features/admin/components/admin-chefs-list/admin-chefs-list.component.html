@@ -102,7 +102,7 @@ currentPage = {{ currentPage }}
   <a
     *ngFor="let pageNo of pages"
     [class.active]="currentPage === pageNo"
-    [routerLink]="['/branches']"
+    [routerLink]="['/admin','chefs']"
     [queryParams]="{ page: pageNo }"
   >
     {{ pageNo }}

@@ -1,6 +1,6 @@
 <div class="head">
   <h3>Branches List</h3>
-  <button routerLink="/users/add" class="cursor-ponter">Add New Branch</button>
+  <button [routerLink]="['/admin', 'branches', 'add']" class="cursor-ponter">Add New Branch</button>
 </div>
 
 <div class="success" *ngIf="loading">
@@ -24,22 +24,13 @@
         <td>{{ branch.name }}</td>
         <td>{{ branch.location }}</td>
         <td class="action">
-          <button class="cursor-ponter">Edit</button>
-          <button class="cursor-ponter">Details</button>
-          <button class="cursor-ponter">Delete</button>
+          <button class="cursor-ponter" (click)="handleEditBranch(branch)">Edit</button>
+          <!-- <button class="cursor-ponter">Details</button> -->
+          <button class="cursor-ponter" (click)="handleDeleteBranch(branch)">Delete</button>
 <button class="cursor-ponter" (click)="viewChefsOfBranch(branch.id)">View Chefs</button>
         </td>
       </tr>
 
-      <!-- Show chefs if available -->
-      <!-- <tr *ngIf="branch.chefs && branch.chefs.length > 0">
-        <td colspan="4">
-          <strong>Chefs:</strong>
-          <ul>
-            <li *ngFor="let chef of branch.chefs">{{ chef }}</li>
-          </ul>
-        </td>
-      </tr> -->
     </ng-container>
   </tbody>
 </table>
@@ -80,7 +71,7 @@ currentPage = {{ currentPage }}
   <a
     *ngFor="let pageNo of pages"
     [class.active]="currentPage === pageNo"
-    routerLink="/branches"
+    [routerLink]="['/admin','branches']"
     [queryParams]="{ page: pageNo }"
   >
     {{ pageNo }}

@@ -8,6 +8,7 @@ import { AdminIngredientsComponent } from './components/admin-ingredients/admin-
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminProfileComponent } from './components/admin-profile/admin-profile.component';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -23,7 +24,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    FormsModule
+    FormsModule,
+    
+
   ]
 })
 export class AdminModule { }

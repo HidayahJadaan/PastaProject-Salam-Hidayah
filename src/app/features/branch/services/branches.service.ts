@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IihStorageService } from '../../../services/iih-storage.service';
-import { Branch } from '../branch.model';
+import { Branch } from '../models/branch.model';
 import PaginatedResponse from '../../shared/models/paginated-response.model';
 
 const BRANCHES_LOCAL_STORAGE_KEY = 'branches-data';
@@ -88,7 +88,6 @@ export class BranchesService {
             BRANCHES_LOCAL_STORAGE_KEY
           ) || ''
         );
-       
 
         resolve(Branchs);
       }, 1500);
@@ -195,4 +194,16 @@ export class BranchesService {
     });
   }
   // ==================================================================
+  validateBranchForm(name: string, location: string): string[] {
+    const errors: string[] = [];
+
+    if (!name.trim()) {
+      errors.push('Name is required');
+    }
+    if (!location.trim()) {
+      errors.push('Location Address is required');
+    }
+
+    return errors;
+  }
 }
