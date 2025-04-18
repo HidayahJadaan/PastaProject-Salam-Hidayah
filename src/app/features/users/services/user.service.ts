@@ -25,7 +25,7 @@ export class UserService {
           type: 'admin',
         },
         {
-          id: '2',
+          id: '20',
           name: 'Abdullah Omar',
           email: 'abd@gmail.com',
           password: '123',
@@ -37,6 +37,25 @@ export class UserService {
           email: 'heba@gmail.com',
           password: '123',
           type: 'customer',
+        },
+        {
+          id: '1',
+          name: 'Chef Amal',
+        
+          email: 'amal@pasta.com',
+          password: '123',
+         
+          type: 'chef',
+        },
+
+        {
+          id: '22',
+          name: 'Chef Ahmad',
+          
+          email: 'ahmad@gmail.com',
+          password: '123',
+          type: 'chef',
+         
         },
       ];
 

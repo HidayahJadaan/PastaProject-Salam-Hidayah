@@ -69,7 +69,7 @@ export class AdminPastasFormComponent implements OnInit {
 
     // Use imagePreview as Base64 string
     const newDish: PastaDish = {
-      id: Math.random(),
+      id: ''+Math.random(),
       name: this.name,
       description: this.description,
       price: this.price,

@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'profile', component: ChefProfileComponent },
   { path: 'dishes', component: DishesListComponent },
   { path: 'dishes/add', component: AddDishComponent },
+  { path: 'dishes/edit/:id', component: AddDishComponent },
   { path: 'ingredients/:dishId', component: IngredientsManageComponent },
   { path: 'orders', component: OrdersComponent },
 ];

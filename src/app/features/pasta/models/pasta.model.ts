@@ -1,5 +1,6 @@
+
 export interface PastaDish {
-  id: number;
+  id: string;
   name: string;
   description: string;
   image: string;
@@ -7,4 +8,5 @@ export interface PastaDish {
   chefId?: number;
   pastaType: string;
   dietaryInfo: string;
+  ingredientIds?: string[];
 }

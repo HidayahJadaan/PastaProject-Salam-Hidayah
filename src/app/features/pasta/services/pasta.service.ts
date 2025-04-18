@@ -13,59 +13,64 @@ export class PastaService {
       !!this.storageService.getItemFromLocalStorage(PASTA_FILLED);
 
     if (!filled_status) {
-      const dishes: PastaDish[] = [
-        {
-          id: 1,
-          name: 'Classic Spaghetti Bolognese',
-          description: 'Traditional Italian pasta with a rich meat sauce.',
-          image: 'assets/images/spaghetti-bolognese.jpg',
-          price: 8.99,
-          chefId: 101,
-          pastaType: 'Spaghetti',
-          dietaryInfo: 'Contains gluten, dairy, and beef',
-        },
-        {
-          id: 2,
-          name: 'Creamy Fettuccine Alfredo',
-          description: 'Fettuccine pasta tossed in a creamy Alfredo sauce.',
-          image: 'assets/images/fettuccine-alfredo.jpg',
-          price: 10.49,
-          chefId: 102,
-          pastaType: 'Fettuccine',
-          dietaryInfo: 'Vegetarian, contains dairy and gluten',
-        },
-        {
-          id: 3,
-          name: 'Pesto Penne',
-          description: 'Penne pasta with a fresh basil pesto sauce.',
-          image: 'assets/images/pesto-penne.jpg',
-          price: 9.25,
-          chefId: 101,
-          pastaType: 'Penne',
-          dietaryInfo: 'Vegetarian, contains nuts and gluten',
-        },
-        {
-          id: 4,
-          name: 'Seafood Linguine',
-          description:
-            'Linguine pasta with shrimp, clams, and mussels in a tomato garlic sauce.',
-          image: 'assets/images/seafood-linguine.jpg',
-          price: 13.5,
-          chefId: 103,
-          pastaType: 'Linguine',
-          dietaryInfo: 'Contains shellfish, gluten',
-        },
-        {
-          id: 5,
-          name: 'Vegan Mac & Cheese',
-          description: 'Creamy vegan macaroni and cheese with cashew sauce.',
-          image: 'assets/images/vegan-mac-cheese.jpg',
-          price: 7.99,
-          chefId: 104,
-          pastaType: 'Macaroni',
-          dietaryInfo: 'Vegan, contains nuts and gluten',
-        },
-      ];
+    const dishes: PastaDish[] = [
+      {
+        id: '1',
+        name: 'Classic Spaghetti Bolognese',
+        description: 'Traditional Italian pasta with a rich meat sauce.',
+        image: 'assets/images/spaghetti-bolognese.jpg',
+        price: 8.99,
+        chefId: 101,
+        pastaType: 'Spaghetti',
+        dietaryInfo: 'Contains gluten, dairy, and beef',
+        ingredientIds: ['1', '2', '3'],
+      },
+      {
+        id: '2',
+        name: 'Creamy Fettuccine Alfredo',
+        description: 'Fettuccine pasta tossed in a creamy Alfredo sauce.',
+        image: 'assets/images/fettuccine-alfredo.jpg',
+        price: 10.49,
+        chefId: 102,
+        pastaType: 'Fettuccine',
+        dietaryInfo: 'Vegetarian, contains dairy and gluten',
+        ingredientIds: ['3', '4', '5'],
+      },
+      {
+        id: '3',
+        name: 'Pesto Penne',
+        description: 'Penne pasta with a fresh basil pesto sauce.',
+        image: 'assets/images/pesto-penne.jpg',
+        price: 9.25,
+        chefId: 101,
+        pastaType: 'Penne',
+        dietaryInfo: 'Vegetarian, contains nuts and gluten',
+        ingredientIds: ['6', '7'],
+      },
+      {
+        id: '4',
+        name: 'Seafood Linguine',
+        description:
+          'Linguine pasta with shrimp, clams, and mussels in a tomato garlic sauce.',
+        image: 'assets/images/seafood-linguine.jpg',
+        price: 13.5,
+        chefId: 103,
+        pastaType: 'Linguine',
+        dietaryInfo: 'Contains shellfish, gluten',
+        ingredientIds: ['2', '8', '9'],
+      },
+      {
+        id: '5',
+        name: 'Vegan Mac & Cheese',
+        description: 'Creamy vegan macaroni and cheese with cashew sauce.',
+        image: 'assets/images/vegan-mac-cheese.jpg',
+        price: 7.99,
+        chefId: 104,
+        pastaType: 'Macaroni',
+        dietaryInfo: 'Vegan, contains nuts and gluten',
+        ingredientIds: ['10', '11'],
+      },
+    ];
 
       // localStorage.clear();
       // Set and override dishes array to localstorage database
@@ -119,7 +124,7 @@ export class PastaService {
             PASTA_LOCAL_STORAGE_KEY
           ) || ''
         );
-        dish.id = dishes.length + 1;
+        dish.id = '' + dishes.length + 1;
 
         dishes.push(dish);
         this.storageService.setItemInLocalStorage(
@@ -132,7 +137,7 @@ export class PastaService {
     });
   }
   // ================================
-  getPastaDish(id: number): Promise<PastaDish> {
+  getPastaDish(id: string): Promise<PastaDish> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         const rawData = this.storageService.getItemFromLocalStorage(
@@ -159,7 +164,7 @@ export class PastaService {
 
   // ================================
 
-  getIngredientsByDishId(dishId: number): Promise<PastaDish[]> {
+  getIngredientsByDishId(dishId: string): Promise<PastaDish[]> {
     return new Promise((resolve) => {
       setTimeout(() => {
         const dishesData = this.storageService.getItemFromLocalStorage(
@@ -232,6 +237,19 @@ export class PastaService {
       }, 500);
     });
   }
+  // ==============================================
+  // getDishesWithIngredients(): PastaDish[] {
+  //   const dishes = this.getPastaDishes();
+  //   const ingredients = this.ingredientService.getIngredients();
+
+  //   return dishes.map((dish) => ({
+  //     ...dish,
+  //     ingredients: ingredients.filter((ing) =>
+  //       ing.linkedDishIds.includes(dish.id)
+  //     ),
+  //   }));
+  // }
+
   // ==============================================
   validatePastaDishForm(
     name: string,

@@ -24,8 +24,8 @@ export class AuthServiceService {
     sessionStorage.removeItem('current-user');
     sessionStorage.removeItem('remember-me');
     // }
-
-    this.userUpdated.emit(null);
+localStorage.clear();
+    // this.userUpdated.emit(null);
     this.router.navigate(['/']);
   }
   // ================================
@@ -39,7 +39,7 @@ export class AuthServiceService {
       } else {
         sessionStorage.setItem('current-user', JSON.stringify(user));
       }
-      this.userUpdated.emit(user);
+      // this.userUpdated.emit(user);
       return user;
     });
   }
@@ -76,7 +76,7 @@ export class AuthServiceService {
       sessionStorage.setItem('current-user', userStr);
     }
 
-    this.userUpdated.emit(user); 
+    // this.userUpdated.emit(user); 
   }
 
   // ======================

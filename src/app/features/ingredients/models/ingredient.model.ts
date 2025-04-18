@@ -4,5 +4,5 @@ export interface Ingredient {
   description: string;
   quantity: number;
   unit: string;
-  linkedDishId?: string;
+  linkedDishIds?: string[];
 }
