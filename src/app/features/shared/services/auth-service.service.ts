@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { EventEmitter, inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import User from '../../users/models/user.model';
 import { UserService } from '../../users/services/user.service';
@@ -8,6 +8,8 @@ const USERS_LOCAL_STORAGE_KEY = 'users-data';
   providedIn: 'root',
 })
 export class AuthServiceService {
+  userUpdated = new EventEmitter<User | null>();
+
   constructor(private router: Router, private userService: UserService) {
     this.userService.fillData();
   }
@@ -23,6 +25,7 @@ export class AuthServiceService {
     sessionStorage.removeItem('remember-me');
     // }
 
+    this.userUpdated.emit(null);
     this.router.navigate(['/']);
   }
   // ================================
@@ -36,16 +39,16 @@ export class AuthServiceService {
       } else {
         sessionStorage.setItem('current-user', JSON.stringify(user));
       }
+      this.userUpdated.emit(user);
       return user;
     });
   }
 
   // ================================
   registerUser(user: User): Promise<User> {
-   return this.userService.registerUser(user).then((user: User) => {
-    
-     return user;
-   });
+    return this.userService.registerUser(user).then((user: User) => {
+      return user;
+    });
   }
 
   // ====================================
@@ -63,7 +66,20 @@ export class AuthServiceService {
       return currentUser;
     }
   }
+  // ======================
+  setCurrentUser(user: User): void {
+    const remember = JSON.parse(localStorage.getItem('remember-me') || 'false');
+    const userStr = JSON.stringify(user);
+    if (remember) {
+      localStorage.setItem('current-user', userStr);
+    } else {
+      sessionStorage.setItem('current-user', userStr);
+    }
 
+    this.userUpdated.emit(user); 
+  }
+
+  // ======================
   isAuthenticated(): boolean {
     return (
       !!localStorage.getItem('current-user') ||

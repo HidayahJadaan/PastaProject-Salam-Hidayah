@@ -56,15 +56,15 @@ export class ChefProfileComponent {
   }
 
   saveChanges(): void {
-    // Call service to update user info if needed
+    
     console.log('Saving:', this.user);
     this.isEditing = false;
-    // update saved state
+   
     this.originalUser = { ...this.user };
   }
 
   cancelEdit(): void {
-    this.user = { ...this.originalUser }; // Revert changes
+    this.user = { ...this.originalUser }; 
     this.isEditing = false;
   }
   editUserProfileInfo(): void {

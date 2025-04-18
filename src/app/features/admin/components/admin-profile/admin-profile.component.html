@@ -1,1 +1,64 @@
-<p>admin-profile works!</p>
+<div class="head">
+  <h3>Admin Profile</h3>
+  <div>
+    <button *ngIf="!isEditing" (click)="editUserProfileInfo()">Edit Info</button>
+  </div>
+</div>
+
+<div class="user-detalis">
+  <div class="form">
+
+   
+    <div class="success" *ngIf="loading">
+      <img src="/loader.gif" width="30px" />
+      Getting User details ...
+    </div>
+
+    <!-- Error Message -->
+    <div class="error" *ngIf="error">
+      {{ error }}
+    </div>
+
+  
+    <div *ngIf="cuurUser && !loading">
+
+      <div class="form-control">
+        <label>Name</label>
+        <ng-container *ngIf="!isEditing; else editName">
+          <span>{{ cuurUser.name }}</span>
+        </ng-container>
+        <ng-template #editName>
+          <input [(ngModel)]="cuurUser.name" type="text" />
+        </ng-template>
+      </div>
+
+      <div class="form-control">
+        <label>Email Address</label>
+        <ng-container *ngIf="!isEditing; else editEmail">
+          <span>{{ cuurUser.email }}</span>
+        </ng-container>
+        <ng-template #editEmail>
+          <input [(ngModel)]="cuurUser.email" type="email" />
+        </ng-template>
+      </div>
+
+      <div class="form-control">
+        <label>Password</label>
+        <ng-container *ngIf="!isEditing; else editPassword">
+          <span>{{ cuurUser.password}}</span>
+        </ng-container>
+        <ng-template #editPassword>
+          <input [(ngModel)]="cuurUser.password" type="password" />
+        </ng-template>
+      </div>
+
+      <!-- Save / Cancel Buttons -->
+      <div *ngIf="isEditing" class="actions">
+        <button (click)="saveChanges()">Save</button>
+        <button (click)="cancelEdit()">Cancel</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
