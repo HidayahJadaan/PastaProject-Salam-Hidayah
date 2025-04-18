@@ -1,0 +1,49 @@
+<div class="head">
+  <h3>{{ ingredientId ? "Edit" : "Add" }} Ingredient</h3>
+  <div>
+    <a routerLink="/admin/ingredients" >Ingredients List</a>
+  </div>
+</div>
+<div class="user-form">
+  <div class="form">
+    <div>
+      <div class="success" *ngIf="loading">
+        <img src="/loader.gif" width="30px" />
+        Saving ingredient ...
+      </div>
+      <div class="success" *ngIf="loadingforGet">
+        <img src="/loader.gif" width="30px" />
+        Getting Ingredient ...
+      </div>
+      <div class="success" *ngIf="success">
+        {{ success }}
+      </div>
+      <div class="error" *ngIf="errors.length">
+        <div *ngFor="let error of errors">{{ error }}</div>
+      </div>
+      <div class="form-control">
+        <label>Name</label>
+        <input type="text" [(ngModel)]="name" name="name" />
+      </div>
+
+      <div class="form-control">
+        <label>Description</label>
+        <textarea [(ngModel)]="description" name="description"></textarea>
+      </div>
+
+      <div class="form-control">
+        <label>Quantity</label>
+        <input type="number" [(ngModel)]="quantity" name="quantity" />
+      </div>
+
+      <div class="form-control">
+        <label>Unit</label>
+        <input type="text" [(ngModel)]="unit" name="unit" />
+      </div>
+
+      <div class="form-control">
+        <button (click)="saveIngredient()">Submit</button>
+      </div>
+    </div>
+  </div>
+</div> 

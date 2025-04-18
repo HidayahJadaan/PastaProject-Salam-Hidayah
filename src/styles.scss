@@ -74,7 +74,13 @@ button{
         cursor: pointer;
     }
 
-
+.form-wrapper{
+    width: 98vw;
+    border: 1px solid red;
+    table{
+        width: 100%;
+    }
+}
 
     // pagination ==============================
     

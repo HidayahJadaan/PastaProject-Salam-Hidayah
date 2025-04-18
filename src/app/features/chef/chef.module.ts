@@ -7,9 +7,11 @@ import { AddDishComponent } from './components/add-dish/add-dish.component';
 import { IngredientsManageComponent } from './components/ingredients-manage/ingredients-manage.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { ChefsRoutingModule } from './chefs-routing.module';
-import { FormsModule } from '@angular/forms';
 import { HidePasswordPipe } from '../shared/pipes/hide-password.pipe';
 import { ChefService } from './services/chef.service';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { ChefsFormComponent } from './components/chefs-form/chefs-form.component';
 
 
 
@@ -21,9 +23,10 @@ import { ChefService } from './services/chef.service';
     AddDishComponent,
     IngredientsManageComponent,
     OrdersComponent,
+    ChefsFormComponent
    
   ],
-  imports: [CommonModule, ChefsRoutingModule, FormsModule],
+  imports: [CommonModule, FormsModule,ChefsRoutingModule,RouterModule],
   providers:[{provide: ChefService, useClass:ChefService}]
 })
 export class ChefModule {}

@@ -1,13 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { ChefService } from '../../services/chef.service';
 import { Chef } from '../../models/chef.model';
 import { UserService } from '../../../users/services/user.service';
 import User from '../../../users/models/user.model';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-chefs-form',
   standalone: false,
+  // standalone: true,
+  // imports:[RouterModule,FormsModule,CommonModule],
   templateUrl: './chefs-form.component.html',
   styleUrl: './chefs-form.component.scss',
 })

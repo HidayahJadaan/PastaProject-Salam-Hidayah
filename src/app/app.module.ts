@@ -11,7 +11,11 @@ import { ContactUsComponent } from './components/pages/contact-us/contact-us.com
 import { MainMenuComponent } from './components/pages/main-menu/main-menu.component';
 import { HomePageComponent } from './components/pages/home-page/home-page.component';
 import { LoaderComponent } from './components/loader/loader.component';
-import { ChefsFormComponent } from './features/chef/components/chefs-form/chefs-form.component';
+// import { ChefsFormComponent } from './features/chef/components/chefs-form/chefs-form.component';
+// import { IngredientFormComponent } from './features/ingredient/components/ingredient-form/ingredient-form.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -23,12 +27,16 @@ import { ChefsFormComponent } from './features/chef/components/chefs-form/chefs-
     MainMenuComponent,
     HomePageComponent,
     LoaderComponent,
-    ChefsFormComponent
+    // ChefsFormComponent,
+    // IngredientFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    CommonModule,
+    RouterModule
   ],
  
   providers: [],

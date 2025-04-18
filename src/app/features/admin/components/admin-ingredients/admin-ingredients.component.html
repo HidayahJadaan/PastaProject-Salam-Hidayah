@@ -1,1 +1,53 @@
-<p>admin-ingredients works!</p>
+<div class="form-wrapper">
+    <div class="head">
+  <h3>Ingredients List</h3>
+  <button [routerLink]="['/admin', 'ingredients', 'add']" class="cursor-ponter">
+    Add New Ingredient
+  </button>
+</div>
+
+<div class="success" *ngIf="loadingIngredients">
+  <img src="/loader.gif" width="30px" />
+  loading Ingredients
+</div>
+
+<table border="1" [width]="1400" *ngIf="!loadingIngredients">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Quantity</th>
+      <th>Unit</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let ingredient of ingredients; let i = index">
+      <tr>
+        <td>{{ ingredient.id }}</td>
+        <td>{{ ingredient.name }}</td>
+        <td>{{ ingredient.description }}</td>
+        <td>{{ ingredient.quantity }}</td>
+        <td>{{ ingredient.unit }}</td>
+      
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+
+
+</div>
+
+currentPage = {{ currentPage }}
+
+<div class="pagination">
+  <a
+    *ngFor="let pageNo of pages"
+    [class.active]="currentPage === pageNo"
+    [routerLink]="['/admin','ingredients']"
+    [queryParams]="{ page: pageNo }"
+  >
+    {{ pageNo }}
+  </a>
+</div>

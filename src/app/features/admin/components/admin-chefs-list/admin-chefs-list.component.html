@@ -1,6 +1,8 @@
-<div class="head">
-  <h3>Chefs List</h3>
-  <button [routerLink]="['/admin', 'chefs', 'add']" class="cursor-ponter">
+<div class="form-wrapper">
+
+  <div class="head">
+    <h3>Chefs List</h3>
+    <button [routerLink]="['/admin', 'chefs', 'add']" class="cursor-ponter">
     Add New Chef
   </button>
 </div>
@@ -34,13 +36,13 @@
           <!-- <button class="cursor-ponter">Details</button> -->
           <button class="cursor-ponter" (click)="handleDeleteChef(chef)">Delete</button>
           <button
-            class="cursor-ponter"
+          class="cursor-ponter"
           
-            (click)="assignChefToBranchClick(chef.id)"
+          (click)="assignChefToBranchClick(chef.id)"
           >
-            Assign To Branch
-          </button>
-          <!-- <button class="cursor-ponter" (click)="viewChefsOfBranch(branch.id)">View Chefs</button> -->
+          Assign To Branch
+        </button>
+        <!-- <button class="cursor-ponter" (click)="viewChefsOfBranch(branch.id)">View Chefs</button> -->
         </td>
       </tr>
     </ng-container>
@@ -48,44 +50,44 @@
 </table>
 
 <div class="modal-backdrop" *ngIf="showModal">
-   
+  
 
   <div class="modal">
     <h3>Branches List</h3>
-
-     <div class="success" *ngIf="loading">
-  <img src="/loader.gif" width="30px" />
+    
+    <div class="success" *ngIf="loading">
+      <img src="/loader.gif" width="30px" />
   loading Branches
 </div>
 
-    <table *ngIf="!loading && branches.length > 0" border="1">
-      <thead>
-        <tr>
-          <th>Branch Id</th>
-          <th>Branch Name</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let branch of branches">
-          <td>{{ branch.id }}</td>
-          <td>{{ branch.name }}</td>
+<table *ngIf="!loading && branches.length > 0" border="1">
+  <thead>
+    <tr>
+      <th>Branch Id</th>
+      <th>Branch Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let branch of branches">
+      <td>{{ branch.id }}</td>
+      <td>{{ branch.name }}</td>
         </tr>
       </tbody>
     </table>
     <select
-      [(ngModel)]="selectedBranchId"
-      name="selectBranch"
-      id="selectBranch"
-      *ngIf="!loading"
+    [(ngModel)]="selectedBranchId"
+    name="selectBranch"
+    id="selectBranch"
+    *ngIf="!loading"
     >
-      <option *ngFor="let branch of branches" [value]="branch.id">
-        {{ branch.name }}
+    <option *ngFor="let branch of branches" [value]="branch.id">
+      {{ branch.name }}
       </option>
     </select>
 
     <p *ngIf="!loading&&branches.length === 0">No Branches Available.</p>
     <button (click)="closeModal()">Close</button>
-   <button (click)="confirmAssignBranch()" [disabled]="loadingAssign">
+    <button (click)="confirmAssignBranch()" [disabled]="loadingAssign">
       <!-- optional spinner inside assign button -->
       <span *ngIf="loadingAssign">
         <img src="/loader.gif" width="20px" />
@@ -96,6 +98,7 @@
   </div>
 </div>
 
+</div>
 currentPage = {{ currentPage }}
 
 <div class="pagination">

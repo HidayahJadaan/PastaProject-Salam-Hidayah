@@ -9,6 +9,7 @@ import { ChefsFormComponent } from '../chef/components/chefs-form/chefs-form.com
 import { BranchFormComponent } from '../branch/components/branch-form/branch-form.component';
 import { AdminPastasFormComponent } from './components/admin-pastas-form/admin-pastas-form.component';
 import { AdminPastasListComponent } from './components/admin-pastas-list/admin-pastas-list.component';
+import { IngredientFormComponent } from '../ingredients/components/ingredient-form/ingredient-form.component';
 
 const routes: Routes = [
   { path: '', component: AdminDasboardComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'pastas/add', component: AdminPastasFormComponent },
   // { path: 'pastas/edit/:id', component: AdminPastasFormComponent },
   { path: 'ingredients', component: AdminIngredientsComponent },
+  { path: 'ingredients/add', component: IngredientFormComponent },
 ];
 
 @NgModule({
