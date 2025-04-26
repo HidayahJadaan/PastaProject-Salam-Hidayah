@@ -104,9 +104,11 @@ export class LoginComponent implements OnInit {
         .registerUser(newUser)
         .then((user: User) => {
           alert(`Registration successful! Welcome ${user.name}`);
-          this.loaderService.hide();
+          // this.loaderService.show();
           localStorage.setItem('remember-me', JSON.stringify(this.rememberMe));
           this.saveUserSession(user);
+              this.loaderService.hide();
+
           this.redirectUser(user);
         })
         .catch((error: string) => {

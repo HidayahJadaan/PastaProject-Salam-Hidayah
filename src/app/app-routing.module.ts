@@ -8,6 +8,7 @@ import { ContactUsComponent } from './components/pages/contact-us/contact-us.com
 import { MainMenuComponent } from './components/pages/main-menu/main-menu.component';
 import { HomePageComponent } from './components/pages/home-page/home-page.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import { AdminDasboardComponent } from './features/admin/components/admin-dasboard/admin-dasboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
@@ -58,6 +59,7 @@ const routes: Routes = [
       { path: 'contact-us', component: ContactUsComponent },
     ],
   },
+  // { path: '', component: HomePageComponent },
   { path: '**', redirectTo: 'auth' },
 ];
 

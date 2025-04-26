@@ -1,0 +1,464 @@
+// @import url("https://fonts.googleapis.com/css2?family=Emblema+One&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Marhey:wght@300..700&family=MuseoModerno&family=Noto+Sans+Arabic:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
+
+// * {
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+// }
+
+// :root {
+//   --primary: #ff0077;
+// }
+
+// body {
+//   position: relative;
+//   background: #fff;
+//   font-family: "Poppins", sans-serif;
+//   width: 100%;
+//   min-height: 100%;
+//   overflow: hidden;
+// }
+
+header {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 20px 60px;
+  z-index: 20;
+  transition: 1s;
+  transition-delay: 0.5s;
+}
+
+header.active {
+  width: 5%;
+  /* border: 1px solid red; */
+  /* margin: 0; */
+}
+
+.logo {
+  font-family: "Lobster Two", cursive;
+  font-size: 30px;
+  color: black;
+  letter-spacing: 1px;
+  font-weight: 400;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+header.active .logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  transition: 0.5s;
+  transform-origin: left;
+}
+
+header.active .nav {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.nav li {
+  list-style: none;
+  margin: 0 20px;
+}
+
+.nav li a {
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.5s;
+  font-weight: 300;
+  padding: 10px;
+}
+
+.nav li:hover a,
+.nav-mobile li:hover a {
+  color: var(--primary);
+}
+
+.nav-mobile {
+  position: absolute;
+  left: 50%;
+  top: 25%;
+  transform: translateX(-50%);
+  transition: 0.5s;
+  transform-origin: top;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.nav-mobile.active {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* gap: 100px;  */
+  opacity: 1;
+  visibility: visible;
+  /* border: 1px solid red; */
+}
+
+.nav-mobile li {
+  list-style: none;
+  transform: rotateZ(90deg);
+  margin-top: 120px;
+  width: 200px;
+  text-decoration: none;
+  display: inline;
+  color: black;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.5s;
+  font-weight: 300;
+}
+.nav-mobile li a {
+  text-decoration: none;
+  display: inline;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: 0.5s;
+  font-weight: 300;
+}
+.menu {
+  display: none;
+  font-size: 2em;
+  transition: 1s;
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* .menu.rotate {
+    transform: translateX(-50%) rotateZ(45deg);
+} */
+.menu ion-icon {
+  transform: rotateZ(0);
+  color: black;
+}
+
+header.active .menu {
+  display: block;
+  transform: rotateX(-50%) rotateZ(0);
+  transition: 0.5s;
+}
+
+.menu.active {
+  transform: translateX(-50%) rotateZ(45deg) !important;
+}
+
+.banner {
+  position: relative;
+  width: 45%;
+  min-height: 100vh;
+  padding: 0 60px;
+  background: #ffffff;
+  overflow: hidden;
+  transition: ease-in-out 1.5s;
+  z-index: 10;
+}
+
+.banner.active {
+  width: 7%;
+  transition: ease-in-out 1.5s;
+}
+
+.banner .content {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+.banner .content h1 {
+  font-family: "Lobster Two", cursive;
+  font-size: 7em;
+  letter-spacing: 2px;
+  font-weight: 300;
+  text-transform: uppercase;
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  margin-bottom: 20px;
+  transition: 1s;
+  transition-delay: 0.5s;
+}
+
+.banner.active .content h1 {
+  opacity: 0;
+  visibility: hidden;
+  transition: 1s;
+  transform: translateX(-100%);
+}
+
+.banner .content a.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #000000;
+  text-decoration: none;
+  font-size: 1.3em;
+  text-transform: uppercase;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 0.7rem 2.5rem;
+  border: 1px solid rgba(0, 0, 0, 1);
+  opacity: 1;
+  visibility: visible;
+  transition: 0.5s;
+}
+
+.banner .content a.btn ion-icon {
+  font-size: 1.1em;
+}
+
+.banner .content a.btn:hover {
+  gap: 30px;
+}
+
+.banner .content .arrow {
+  position: absolute;
+  visibility: hidden;
+  padding: 0;
+  transition: 0.5s;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10%;
+  border: none;
+  z-index: 100;
+  opacity: 0;
+}
+
+.banner .content .arrow ion-icon {
+  font-size: 2em;
+  transition: 0.5s;
+}
+
+.banner .content .arrow:hover ion-icon {
+  color: var(--primary);
+}
+.banner.active .content .arrow {
+  opacity: 1;
+  visibility: visible;
+}
+
+.banner.active .content a.btn {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.banner-middle {
+  position: absolute;
+  top: 0;
+  left: 48%;
+  width: 50%;
+  height: 100vh;
+  padding: 0 10px;
+  background: rgba(0, 0, 0, 1);
+  overflow: hidden;
+  transition: ease-in-out 1.5s;
+  transition-delay: 0.2s;
+}
+
+.banner-middle.active {
+  left: 8%;
+}
+
+.banner-middle .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.swiper-pas1,
+.swiper-pas2,
+.swiper-pas3 {
+  width: 100%;
+  height: 100vh;
+}
+
+.swiper-slide {
+  background: #ffffff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.banner-right {
+  position: absolute;
+  top: 0;
+  left: 90%;
+  width: 40%;
+  height: 100vh;
+  padding: 50px 40px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
+  overflow: hidden;
+  transition: ease-in-out 1.5s;
+  transition-delay: 0.4s;
+  border: 1px solid red;
+  /* z-index: 100; */
+   opacity: 0;
+  visibility: hidden;
+}
+
+.banner-right.active {
+  left: 59%;
+   opacity: 1;
+  visibility: visible;
+}
+.banner-right h1 {
+  font-family: "Lobster Two", cursive;
+  font-size: 5.4em;
+  letter-spacing: 2px;
+  font-weight: 300;
+  text-transform: uppercase;
+  opacity: 1;
+  visibility: visible;
+  margin-bottom: 20px;
+  transition: 0.5s;
+  transform-origin: left;
+  line-height: 1em;
+}
+
+.banner-right .number {
+  position: absolute;
+  font-size: 5.4em;
+  top: 4.8%;
+  right:38%; 
+}
+
+.banner-right .content {
+  display: flex;
+  border-top: 1px solid;
+  border-image: linear-gradient(90deg, #000000, transparent, transparent) 30;
+}
+
+.content img {
+  padding: 20px;
+  max-width: 50%;
+  object-fit: cover;
+  border-left: 1px solid;
+  border-image: linear-gradient(#000000, transparent, transparent) 30;
+}
+
+.content .description {
+  padding: 20px;
+  border-right: 1px solid;
+  border-bottom: 2px solid;
+  border-image: linear-gradient(#000000, transparent, #000000) 30;
+}
+
+.content .description h3 {
+  font-family: "Lobster Two", cursive;
+  font-size: 1.5em;
+  letter-spacing: 1px;
+  font-weight: 200;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.content .description span {
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.content .description p {
+  font-weight: 200;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.content .description a {
+  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000000;
+  transition: 0.5s;
+}
+
+.content .description a ion-icon {
+  margin-left: 3px;
+  transition: 0.5s;
+}
+
+.content .description a:hover {
+  color: var(--primary);
+}
+
+.footer-content {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: 200;
+  font-size: 0.8s;
+}
+
+.credits a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.sci {
+  position: absolute;
+  bottom: 30px;
+  right: 50%;
+  transform: translateX(50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  z-index: 20px;
+}
+
+.sci li {
+  list-style: none;
+}
+
+.sci a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.sci a ion-icon {
+  font-size: 1.5em;
+  color: #000000;
+  transition: 0.3s;
+}
+
+.sci a:hover ion-icon {
+  color: var(--primary);
+}

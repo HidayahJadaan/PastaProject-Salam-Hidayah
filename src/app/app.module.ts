@@ -17,6 +17,8 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
+// import { SwiperModule } from 'swiper/angular';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +38,8 @@ import { RouterModule } from '@angular/router';
     SharedModule,
     FormsModule,
     CommonModule,
-    RouterModule
+    RouterModule,
+    
   ],
  
   providers: [],
