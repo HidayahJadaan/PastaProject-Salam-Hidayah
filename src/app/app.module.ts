@@ -27,7 +27,7 @@ import { RouterModule } from '@angular/router';
     AboutUsComponent,
     ContactUsComponent,
     MainMenuComponent,
-    HomePageComponent,
+    // HomePageComponent,
     LoaderComponent,
     // ChefsFormComponent,
     // IngredientFormComponent
@@ -40,9 +40,12 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     RouterModule,
     
+    
   ],
  
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+}

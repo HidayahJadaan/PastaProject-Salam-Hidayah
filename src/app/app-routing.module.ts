@@ -51,7 +51,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    component: MainHomeLayoutComponent,
+    // component: MainHomeLayoutComponent,
     children: [
       { path: '', component: HomePageComponent },
       { path: 'about-us', component: AboutUsComponent },

@@ -1,1 +1,290 @@
-<p>home-page works!</p>
+<!-- <header [class.active]="menuActive">
+  <a routerLink="/" class="logo">logo</a>
+  <a href="#" class="menu" (click)="toggleMenu()">
+    <ion-icon name="grid-outline"></ion-icon>
+  </a>
+  <ul class="nav">
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">Recipe Kit</a></li>
+    <li><a href="#">Takeaway</a></li>
+    <li><a href="#">Gifts</a></li>
+    <li><a href="#">Restaurants</a></li>
+  </ul>
+  <ul class="nav-mobile" [class.active]="menuActive">
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">Recipe Kit</a></li>
+    <li><a href="#">Takeaway</a></li>
+    <li><a href="#">Gifts</a></li>
+    <li><a href="#">Restaurants</a></li>
+  </ul>
+</header>
+
+<div class="banner" [class.active]="bannerActive">
+  <div class="content">
+    <h1 class="title">PastaVerse</h1>
+    <a class="btn" href="#" (click)="toggleBanner()">
+      Browse <ion-icon name="arrow-back-circle-outline"></ion-icon>
+    </a>
+    <a href="#" class="arrow" (click)="toggleBanner()">
+      <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+    </a>
+  </div>
+</div>
+
+
+<div class="banner-middle">
+  <div class="container">
+   
+    <div class="swiper-pas">
+      <div class="swiper-wrapper" [style.transform]="getTransform(slider1Index, 2)">
+        <div class="swiper-slide" *ngFor="let image of pas1Images">
+          <img [src]="image" alt="slide" />
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-pas">
+      <div class="swiper-wrapper" [style.transform]="getTransform(slider2Index, 3)">
+        <div class="swiper-slide" *ngFor="let image of pas2Images">
+          <img [src]="image" alt="slide" />
+        </div>
+      </div>
+    </div>
+
+    <div class="swiper-pas">
+      <div class="swiper-wrapper" [style.transform]="getTransform(slider3Index, 2)">
+        <div class="swiper-slide" *ngFor="let image of pas3Images">
+          <img [src]="image" alt="slide" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="banner-right">
+  <h1>Spring</h1>
+  <span class="number">/01</span>
+  <div class="content">
+    <img src="./assets/images/about-us.jpg" alt="" />
+    <div class="description">
+      <h3>Seasonal</h3>
+      <span>Blog | 08 Aug 2023 | Trending</span>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam quod...
+      </p>
+      <a href="#">
+        Read more
+        <ion-icon name="arrow-forward-outline"></ion-icon>
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-content">
+    <div class="copyright">
+      &copy; CopyRight <strong><span>PastaVerse</span></strong> All Rights Reserved.
+    </div>
+    <div class="credits">
+      <a href="">Designed by PastaVerse Tech.</a>
+    </div>
+  </div>
+
+  <div class="sci">
+    <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+    <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+    <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+  </div>
+</div> -->
+<header>
+  <a href="/" class="logo">logo</a>
+  <a href="#" class="menu" onclick="toggleMenu()">
+    <!-- <ion-icon name="grid-outline"></ion-icon> -->
+  </a>
+  <ul class="nav">
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">Recipe Kit</a></li>
+    <li><a href="#">Takeaway</a></li>
+    <li><a href="#">Gifts</a></li>
+    <li><a href="#">Restaurants</a></li>
+  </ul>
+  <ul class="nav-mobile">
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">Recipe Kit</a></li>
+    <li><a href="#">Takeaway</a></li>
+    <li><a href="#">Gifts</a></li>
+    <li><a href="#">Restaurants</a></li>
+  </ul>
+</header>
+
+<div class="banner">
+  <div class="content">
+    <h1 class="title">PastaVerse</h1>
+    <a class="btn" href="#" (click)="toggleBanner()">
+      Browse
+      <ion-icon name="arrow-back-circle-outline"></ion-icon>
+    </a>
+    <a href="#" class="arrow" (click)="toggleBanner()">
+      <ion-icon name="arrow-forward-circle-outline"></ion-icon>
+    </a>
+  </div>
+</div>
+<div class="banner-middle">
+  <div class="container">
+    <!-- Swiper 1 -->
+    <swiper-container
+      class="swiper-pas1"
+      direction="vertical"
+      loop="true"
+      speed="600"
+      slides-per-view="2"
+      space-between="10"
+      autoplay-delay="2000"
+      autoplay-disable-on-interaction="false"
+      autoplay-pause-on-mouse-enter="true"
+    >
+      <!-- <div class="swiper-wrapper"> -->
+
+      <swiper-slide class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="./assets/images/pas-1.jpg" alt="" />
+        </div>
+      </swiper-slide>
+
+      <swiper-slide class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="./assets/images/pas-2.jpg" alt="" />
+        </div>
+      </swiper-slide>
+
+      <swiper-slide class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="./assets/images/pas-3.jpg" alt="" />
+        </div>
+      </swiper-slide>
+
+      <swiper-slide class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="./assets/images/pas-4.jpg" alt="" />
+        </div>
+      </swiper-slide>
+
+      <swiper-slide class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="./assets/images/pas-5.jpg" alt="" />
+        </div>
+      </swiper-slide>
+
+      <!-- </div> -->
+    </swiper-container>
+
+    <!-- Swiper 2 -->
+    <swiper-container
+      class="swiper-pas2"
+      direction="vertical"
+      loop="true"
+      speed="700"
+      slides-per-view="3"
+      space-between="10"
+      autoplay-delay="3000"
+      autoplay-disable-on-interaction="false"
+      autoplay-pause-on-mouse-enter="true"
+      autoplay-reverse-direction="true"
+    >
+      <swiper-slide
+        ><img src="./assets/images/pas-6.jpg" alt=""
+      /></swiper-slide>
+      <swiper-slide
+        ><img src="./assets/images/pas-7.jpg" alt=""
+      /></swiper-slide>
+      <swiper-slide
+        ><img src="./assets/images/pas-8.jpg" alt=""
+      /></swiper-slide>
+      <swiper-slide
+        ><img src="./assets/images/pas-9.jpg" alt=""
+      /></swiper-slide>
+      <swiper-slide
+        ><img src="./assets/images/pas-10.jpg" alt=""
+      /></swiper-slide>
+    </swiper-container>
+
+    <!-- Swiper 3 -->
+    <swiper-container
+      class="swiper-pas3"
+      direction="vertical"
+      loop="true"
+      speed="600"
+      slides-per-view="2"
+      space-between="10"
+      autoplay-delay="2500"
+      autoplay-disable-on-interaction="false"
+      autoplay-pause-on-mouse-enter="true"
+    >
+      <swiper-slide
+        ><img src="./assets/images/pas-11.jpg" alt=""
+      /></swiper-slide>
+      <swiper-slide
+        ><img src="./assets/images/pas-12.jpg" alt=""
+      /></swiper-slide>
+      <swiper-slide
+        ><img src="./assets/images/pas-13.jpg" alt=""
+      /></swiper-slide>
+      <swiper-slide
+        ><img src="./assets/images/pas-14.jpg" alt=""
+      /></swiper-slide>
+      <swiper-slide
+        ><img src="./assets/images/pas-15.jpg" alt=""
+      /></swiper-slide>
+    </swiper-container>
+  </div>
+</div>
+<div class="banner-right">
+  <h1>Spring</h1>
+  <span class="number">/01</span>
+  <div class="content">
+    <img src="assets/images/about-us.jpg" alt="" />
+    <div class="description">
+      <h3>Seasonal</h3>
+      <span>Blog | 08 Aug 2023 | Trending</span>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam quod
+        nesciunt, id ipsa tempora aspernatur fugiat quasi corporis assumenda et?
+        Sapiente minus eos, optio nemo dolorem molestias voluptatem.
+        Necessitatibus, similique. Lorem, ipsum dolor sit amet consectetur
+        adipisicing elit. Molestiae temporibus ipsam impedit perspiciatis
+        doloribus. Ipsa sequi repellat itaque rem dolor velit, iusto deserunt
+        quisquam amet quibusdam necessitatibus, dignissimos aperiam placeat!
+      </p>
+      <a href="#">
+        Read more
+        <!-- <ion-icon name="arrow-forward-outline"></ion-icon> -->
+      </a>
+    </div>
+  </div>
+
+  <div class="footer-content">
+    <div class="copyright">
+      &copy; CopyRight <strong><span>PastaVerse</span></strong> All Rights
+      Reserved.
+    </div>
+
+    <div class="credits">
+      <a href=""> Designed by PastaVerse Tech. </a>
+    </div>
+  </div>
+
+  <div class="sci">
+    <li>
+      <a href="#">
+        <!-- <ion-icon name="logo-facebook"></ion-icon> -->
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <!-- <ion-icon name="logo-twitter"></ion-icon> -->
+      </a>
+    </li>
+    <li>
+      <a href="#">
+        <!-- <ion-icon name="logo-instagram"></ion-icon> -->
+      </a>
+    </li>
+  </div>
+</div>

@@ -1,14 +1,3 @@
-// @import url("https://fonts.googleapis.com/css2?family=Emblema+One&family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Marhey:wght@300..700&family=MuseoModerno&family=Noto+Sans+Arabic:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
-
-// * {
-//   margin: 0;
-//   padding: 0;
-//   box-sizing: border-box;
-// }
-
-// :root {
-//   --primary: #ff0077;
-// }
 
 // body {
 //   position: relative;
@@ -276,6 +265,7 @@ header.active .menu {
   overflow: hidden;
   transition: ease-in-out 1.5s;
   transition-delay: 0.2s;
+  z-index: 50;
 }
 
 .banner-middle.active {
@@ -286,12 +276,17 @@ header.active .menu {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
+  
+  // gap: 20px;
 }
-
+.banner-middle swiper-container {
+  flex: 1;
+  min-width: 0; 
+}
 .swiper-pas1,
 .swiper-pas2,
 .swiper-pas3 {
-  width: 100%;
+  width: 95%;
   height: 100vh;
 }
 
@@ -300,12 +295,20 @@ header.active .menu {
   cursor: pointer;
   transition: 0.3s;
 }
-.swiper-slide img {
+
+.swiper-slide swiper-slide {
+  flex: 1;
+  min-width: 0; 
+  
+}
+.swiper-slide swiper-slide img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  // margin: 10px 0;
+  border: 1px solid black;
 }
 
 .banner-right {
