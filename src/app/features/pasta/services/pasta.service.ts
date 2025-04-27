@@ -70,28 +70,7 @@ export class PastaService {
         dietaryInfo: 'Vegan, contains nuts and gluten',
         ingredientIds: ['10', '11'],
       },
-      {
-        id: '6',
-        name: 'Vegan Mac & Cheese',
-        description: 'Creamy vegan macaroni and cheese with cashew sauce.',
-        image: 'assets/images/veganMac01.jpg',
-        price: 7.99,
-        chefId: 104,
-        pastaType: 'Macaroni',
-        dietaryInfo: 'Vegan, contains nuts and gluten',
-        ingredientIds: ['10', '11'],
-      },
-      {
-        id: '7',
-        name: 'Vegan Mac & Cheese',
-        description: 'Creamy vegan macaroni and cheese with cashew sauce.',
-        image: 'assets/images/veganMac01.jpg',
-        price: 7.99,
-        chefId: 104,
-        pastaType: 'Macaroni',
-        dietaryInfo: 'Vegan, contains nuts and gluten',
-        ingredientIds: ['10', '11'],
-      },
+     
     ];
 
       // localStorage.clear();

@@ -1,1 +1,36 @@
-<p>dish-details works!</p>
+<div class="dish-details" *ngIf="dish">
+  <button class="back-btn" (click)="goBack()">← Back to Menu</button>
+
+  <div class="dish-card">
+    <img [src]="dish.image" alt="Dish Image" class="dish-image">
+
+    <div class="dish-info">
+      <h1 class="dish-name">{{ dish.name }}</h1>
+      <p class="dish-price">${{ dish.price }}</p>
+      <p class="pasta-type"><strong>Pasta Type:</strong> {{ dish.pastaType }}</p>
+      <p class="dietary-info"><strong>Dietary Info:</strong> {{ dish.dietaryInfo }}</p>
+
+      <div class="description">
+        <h3>Description</h3>
+        <p>{{ dish.description }}</p>
+      </div>
+
+      <div class="ingredients" *ngIf="ingredients.length > 0">
+        <h3>Ingredients</h3>
+        <ul>
+          <li *ngFor="let ingredient of ingredients">
+            {{ ingredient.name }} - {{ ingredient.quantity }} {{ ingredient.unit }}
+          </li>
+        </ul>
+      </div>
+
+      <div class="action-buttons">
+        <button (click)="orderDish()">Order Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Loading or not found -->
+<div *ngIf="!dish && loading" class="loading">Loading dish details...</div>
+<div *ngIf="!dish && !loading" class="error">Dish not found.</div>
