@@ -25,7 +25,7 @@ userType: string | null = null;
       this.userType = user.type;
     }
 
-    // 👂 Listen for user changes
+    //Listen for user changes
     this.authService.userUpdated.subscribe((user: User | Chef | Customer| null) => {
       this.isLogin = !!user;
       this.userName = user?.name ?? null;
