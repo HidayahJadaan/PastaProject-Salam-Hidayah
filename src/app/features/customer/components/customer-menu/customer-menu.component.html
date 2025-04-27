@@ -1,1 +1,55 @@
-<p>customer-menu works!</p>
+<div class="menu-container" *ngIf="!loading; else loadingTemplate">
+  <h1 class="menu-title">🍝 Our Pasta Menu</h1>
+
+  <div class="dishes-grid">
+    <div class="dish-card" *ngFor="let dish of dishes">
+      <img [src]="dish.image" alt="{{ dish.name }}" class="dish-image" />
+      <div class="dish-info">
+        <h2 (click)="viewDish(dish)">{{ dish.name }}</h2>
+        <p>{{ dish.description }}</p>
+        <div class="price-and-button">
+          <span class="dish-price">${{ dish.price }}</span>
+          <button (click)="viewDishIngredients(dish.id)">View Ingredients</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <button
+      *ngFor="let page of pages"
+      [class.active]="page === currentPage"
+      (click)="router.navigate(['/customer','menu'], { queryParams: { page: page, pageSize: pageSize } })"
+    >
+      {{ page }}
+    </button>
+  </div>
+  <!-- <div class="pagination">
+  <a
+    *ngFor="let pageNo of pages"
+    [class.active]="currentPage === pageNo"
+    [routerLink]="['/customer', 'menu']"
+    [queryParams]="{ page: pageNo }"
+  >
+    {{ pageNo }}
+  </a>
+</div> -->
+
+
+  <!-- Ingredients Modal -->
+  <div class="modal" *ngIf="showModal">
+    <div class="modal-content">
+      <span class="close" (click)="closeModal()">&times;</span>
+      <h2>Ingredients</h2>
+      <ul>
+        <li *ngFor="let ingredient of selectedDishIngredients">
+          {{ ingredient.name }} ({{ ingredient.quantity }} {{ ingredient.unit }})
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<ng-template #loadingTemplate>
+  <div class="loading">Loading menu...</div>
+</ng-template>

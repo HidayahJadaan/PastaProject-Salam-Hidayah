@@ -1,0 +1,159 @@
+.menu-container {
+  padding: 2rem;
+  text-align: center;
+}
+
+.menu-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #b94b4b;
+  
+}
+
+.dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.dish-card {
+  background: #fff8f0;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+.dish-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.dish-info {
+  padding: 1rem;
+  text-align: left;
+
+  h2 {
+    margin-top: 0;
+    color: #8b0000;
+
+    &:hover{
+      text-decoration: underline;
+    }
+  }
+
+  p {
+    margin: 0.5rem 0 1rem 0;
+    font-size: 1rem;
+    color: #333;
+  }
+
+  .price-and-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dish-price {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #006400;
+  }
+
+  button {
+    background-color: #e07a5f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+      background-color: #d66b49;
+    }
+  }
+}
+
+.pagination {
+  margin-top: 2rem;
+
+  button {
+    background: #eee;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0 0.3rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+
+    &.active, &:hover {
+      background: #e07a5f;
+      color: white;
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    text-align: center;
+    position: relative;
+
+    h2 {
+      margin-bottom: 1rem;
+      color: #b94b4b;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      color: #444;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #888;
+
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+}
+
+.loading {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #555;
+  padding: 3rem;
+}

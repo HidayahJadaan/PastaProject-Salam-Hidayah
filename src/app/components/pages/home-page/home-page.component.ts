@@ -6,8 +6,7 @@ import { Customer } from '../../../features/customer/models/customer.models';
 import { Chef } from '../../../features/chef/models/chef.model';
 import User from '../../../features/users/models/user.model';
 import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+
 import { RouterModule } from '@angular/router';
 // import { register } from 'swiper/element/bundle';
 

@@ -14,7 +14,9 @@ import { Customer } from '../../features/customer/models/customer.models';
 export class MainNavbarComponent implements OnInit {
   isLogin: boolean = false;
   userName: string | null = null;
-userType: string | null = null;
+  userType: string | null = null;
+  menuActive: boolean = false;
+  bannerActive: boolean = false;
 
   constructor(private authService: AuthServiceService) {}
   ngOnInit(): void {
@@ -26,11 +28,13 @@ userType: string | null = null;
     }
 
     //Listen for user changes
-    this.authService.userUpdated.subscribe((user: User | Chef | Customer| null) => {
-      this.isLogin = !!user;
-      this.userName = user?.name ?? null;
-      // this.userType = user?.type ?? null;
-    });
+    this.authService.userUpdated.subscribe(
+      (user: User | Chef | Customer | null) => {
+        this.isLogin = !!user;
+        this.userName = user?.name ?? null;
+        // this.userType = user?.type ?? null;
+      }
+    );
   }
 
   logout(): void {
@@ -41,6 +45,11 @@ userType: string | null = null;
     // remove all listeners
     this.authService.userUpdated.unsubscribe();
   }
+  toggleBanner() {
+    this.bannerActive = !this.bannerActive;
+  }
 
-
+  toggleMenu() {
+    this.menuActive = !this.menuActive;
+  }
 }
