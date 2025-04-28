@@ -1,51 +1,67 @@
-<div class="admin-branches">
+<div class="admin-layout">
 
+  <!-- Sidebar -->
 
-    <h2>List Of All Branches</h2>
-    <a [routerLink]="['branches']">see more...</a>
- <button [routerLink]="['/admin', 'branches', 'add']" class="cursor-ponter">
-    Add New Branch
-  </button>
+<!-- <app-sidebar-admin-chef></app-sidebar-admin-chef> -->
+   <aside class="sidebar">
+    <h2 class="sidebar-title">
+        <img src="assets/images/logo2-nobg.png" alt="">
+    </h2>
+    <nav class="sidebar-nav">
+      <a [routerLink]="['/admin', 'branches']">Branches</a>
+      <a [routerLink]="['/admin', 'chefs']">Chefs</a>
+      <a [routerLink]="['/admin', 'admin-pastas-list']">Pastas</a>
+      <a [routerLink]="['/admin', 'ingredients']">Ingredients</a>
+    </nav>
+  </aside>
+  <!-- Main Content -->
+  <main class="main-content">
+    <h1>Welcome to Admin Dashboard</h1>
+
+    <div class="dashboard-grid">
+
+      <!-- Branches Card -->
+      <div class="dashboard-card">
+        <h2>Branches</h2>
+        <p>Manage all restaurant branches.</p>
+        <div class="card-actions">
+          <a [routerLink]="['branches']">See More</a>
+          <button [routerLink]="['/admin', 'branches', 'add']">Add Branch</button>
+        </div>
+      </div>
+
+      <!-- Chefs Card -->
+      <div class="dashboard-card">
+        <h2>Chefs</h2>
+        <p>Manage chefs and their specializations.</p>
+        <div class="card-actions">
+          <a [routerLink]="['chefs']">See More</a>
+          <button [routerLink]="['/admin', 'chefs', 'add']">Add Chef</button>
+        </div>
+      </div>
+
+      <!-- Pastas Card -->
+      <div class="dashboard-card">
+        <h2>Pastas</h2>
+        <p>Manage pasta dishes available for customers.</p>
+        <div class="card-actions">
+          <a [routerLink]="['admin-pastas-list']">See More</a>
+          <button [routerLink]="['/admin', 'pastas', 'add']">Add Pasta</button>
+        </div>
+      </div>
+
+      <!-- Ingredients Card -->
+      <div class="dashboard-card">
+        <h2>Ingredients</h2>
+        <p>Manage ingredients linked to pasta dishes.</p>
+        <div class="card-actions">
+          <a [routerLink]="['/admin','ingredients']">See More</a>
+          <button [routerLink]="['/admin', 'ingredients', 'add']">Add Ingredient</button>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
 </div>
-
-<div class="admin-chefs">
-    <h2>List of All Chefs</h2>
-        <a [routerLink]="['chefs']">see more...</a>
-
-     <button [routerLink]="['/admin', 'chefs', 'add']" class="cursor-ponter">
-    Add New Chef
-  </button>
-
-</div>
-<div class="admin-pastas">
-    <h2>List of All pastas</h2>
-        <a [routerLink]="['admin-pastas-list']">see more...</a>
-
-    <button [routerLink]="['/admin', 'pastas', 'add']" >Add New Pasta</button>
-
-</div>
-<div class="admin-ingredients">
-    <h2>List of All Ingredients</h2>
-        <a [routerLink]="['/admin','ingredients']">see more...</a>
-
-    <button>Add New Ingredient</button>
-
-</div> 
-
-
-
-
-<!--
-=========================================================
-* Soft UI Dashboard 3 - v1.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard
-* Copyright 2024 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->

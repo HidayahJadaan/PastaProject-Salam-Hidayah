@@ -1,0 +1,184 @@
+/* Form Wrapper */
+.form-wrapper {
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  margin-top: 30px;
+}
+
+/* Header */
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.head h3 {
+  font-size: 28px;
+  color: #2c3e50;
+}
+
+.head button {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.head button:hover {
+  background-color: #FFCF9D;
+}
+
+/* Success/Loading */
+.success {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  color: #3498db;
+  margin-bottom: 20px;
+}
+
+/* Table */
+table {
+  font-family: "Lobster Two", cursive;
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+thead {
+  background-color: #DE8F5F;
+  color: white;
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Action Buttons */
+td.action {
+  display: flex;
+  gap: 10px;
+}
+
+td.action button {
+  background-color: #2ecc71;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+td.action button:hover {
+  background-color: #27ae60;
+}
+
+td.action button:nth-child(2) { /* Delete Button */
+  background-color: #e74c3c;
+}
+
+td.action button:nth-child(2):hover {
+  background-color: #c0392b;
+}
+
+td.action button:nth-child(3) { /* View Chefs Button */
+  background-color: #9b59b6;
+}
+
+td.action button:nth-child(3):hover {
+  background-color: #8e44ad;
+}
+
+/* Modal */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 16px;
+  width: 800px;
+  max-width: 95%;
+  height: auto;
+  overflow-y: auto;
+}
+
+.modal h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.modal table {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.modal button {
+  background-color: #e67e22;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.modal button:hover {
+  background-color: #d35400;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.pagination a {
+  padding: 8px 14px;
+  border: 1px solid #d35400;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.pagination a:hover {
+  background-color: #d35400;
+  color: white;
+}
+
+.pagination a.active {
+  background-color: #d35400;
+  color: white;
+}

@@ -10,6 +10,7 @@ import { AdminProfileComponent } from './components/admin-profile/admin-profile.
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AdminPastasFormComponent } from './components/admin-pastas-form/admin-pastas-form.component';
+import { SidebarAdminChefComponent } from '../../components/sidebar-admin-chef/sidebar-admin-chef.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AdminPastasFormComponent } from './components/admin-pastas-form/admin-p
     AdminProfileComponent,
     AdminPastasFormComponent,
     AdminPastasListComponent,
+    SidebarAdminChefComponent
   ],
   imports: [CommonModule, AdminRoutingModule, FormsModule],
 })

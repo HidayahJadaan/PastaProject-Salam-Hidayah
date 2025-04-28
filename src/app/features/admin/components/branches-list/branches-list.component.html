@@ -1,11 +1,16 @@
-<div class="form-wrapper">
-  
-<div class="head">
-  <h3>Branches List</h3>
-  <button [routerLink]="['/admin', 'branches', 'add']" class="cursor-ponter">Add New Branch</button>
-</div>
+  <div class="main-layout">
 
-<div class="success" *ngIf="loading">
+
+
+
+    <div class="form-wrapper">
+      
+      <div class="head">
+        <h3>Branches List</h3>
+        <button [routerLink]="['/admin', 'branches', 'add']" class="cursor-ponter">Add New Branch</button>
+      </div>
+      
+      <div class="success" *ngIf="loading">
   <img src="/loader.gif" width="30px" />
   loading branch
 </div>
@@ -42,7 +47,7 @@
   <div class="modal">
     <h3>Chefs List</h3>
     <table *ngIf="selectedBranchChefs.length > 0">
-        <thead>
+      <thead>
             <tr>
 <th>Chef Name</th>
         <th>Chef Email</th>
@@ -64,19 +69,20 @@
           <p *ngIf="selectedBranchChefs.length === 0">No chefs found for this branch.</p>
           <button (click)="closeModal()">Close</button>
         </div>
+      </div>
+      
 </div>
 
-</div>
+<!-- currentPage = {{ currentPage }} -->
 
-currentPage = {{ currentPage }}
-
-<div class="pagination">
+<div class="pagination" *ngIf="pages.length > 1">
   <a
   *ngFor="let pageNo of pages"
   [class.active]="currentPage === pageNo"
   [routerLink]="['/admin','branches']"
   [queryParams]="{ page: pageNo }"
   >
-    {{ pageNo }}
-  </a>
+  {{ pageNo }}
+</a>
+</div>
 </div>

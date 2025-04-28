@@ -26,6 +26,7 @@
 
 :root {
   --primary: #b94b4b;
+  --main-font:"Lobster Two", cursive;
 }
 
 body {
@@ -61,7 +62,7 @@ body {
   width: 100%;
   text-align: center;
   margin: 15px;
-  background: antiquewhite;
+  // background: antiquewhite;
 
   a {
     margin: 5px;
@@ -256,13 +257,14 @@ header.active .menu {
 // ==================================================================
 .user-credentials {
   display: flex;
-  gap: 25px;
+  // gap: 25px;
+  justify-content: center;
   align-items: center;
   
   button {
     padding: 8px 16px;
     border: none;
-    border-radius: 20px;
+    // border-radius: 20px;
     background-color: var(--primary);
     color: white;
     font-weight: 500;
@@ -272,6 +274,11 @@ header.active .menu {
     transition: background-color 0.3s ease, transform 0.3s ease;
     font-size: 14px;
   }
+  span{
+    color: var(--primary);
+    font-size: 1.5rem;
+    margin: 21px 12px 0 12px;
+  }
 
   button:hover {
     background-color: var(--primary);
@@ -279,7 +286,8 @@ header.active .menu {
   }
 
   .logout-btn {
-    background-color: #555;
+    // background-color: #555;
+    background: var(--primary);
   }
 
   .logout-btn:hover {

@@ -16,6 +16,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { SidebarAdminChefComponent } from './components/sidebar-admin-chef/sidebar-admin-chef.component';
 
 // import { SwiperModule } from 'swiper/angular';
 
@@ -39,13 +40,9 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     CommonModule,
     RouterModule,
-    
-    
   ],
- 
-  providers: [],
-  bootstrap: [AppComponent]
-})
-export class AppModule { 
 
-}
+  providers: [],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
