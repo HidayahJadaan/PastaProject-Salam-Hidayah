@@ -2,13 +2,17 @@
   <button class="back-btn" (click)="goBack()">← Back to Menu</button>
 
   <div class="dish-card">
-    <img [src]="dish.image" alt="Dish Image" class="dish-image">
+    <img [src]="dish.image" alt="Dish Image" class="dish-image" />
 
     <div class="dish-info">
       <h1 class="dish-name">{{ dish.name }}</h1>
       <p class="dish-price">${{ dish.price }}</p>
-      <p class="pasta-type"><strong>Pasta Type:</strong> {{ dish.pastaType }}</p>
-      <p class="dietary-info"><strong>Dietary Info:</strong> {{ dish.dietaryInfo }}</p>
+      <p class="pasta-type">
+        <strong>Pasta Type:</strong> {{ dish.pastaType }}
+      </p>
+      <p class="dietary-info">
+        <strong>Dietary Info:</strong> {{ dish.dietaryInfo }}
+      </p>
 
       <div class="description">
         <h3>Description</h3>
@@ -19,7 +23,8 @@
         <h3>Ingredients</h3>
         <ul>
           <li *ngFor="let ingredient of ingredients">
-            {{ ingredient.name }} - {{ ingredient.quantity }} {{ ingredient.unit }}
+            {{ ingredient.name }} - {{ ingredient.quantity }}
+            {{ ingredient.unit }}
           </li>
         </ul>
       </div>

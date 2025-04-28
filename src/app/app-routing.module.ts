@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth/guards/auth.guard';
-import { AuthLayoutComponent } from './features/shared/components/auth-layout/auth-layout.component';
+// import { AuthLayoutComponent } from './features/shared/components/auth-layout/auth-layout.component';
 import { MainHomeLayoutComponent } from './components/main-home-layout/main-home-layout.component';
 import { AboutUsComponent } from './components/pages/about-us/about-us.component';
 import { ContactUsComponent } from './components/pages/contact-us/contact-us.component';
 import { MainMenuComponent } from './components/pages/main-menu/main-menu.component';
 import { HomePageComponent } from './components/pages/home-page/home-page.component';
 import { LoginComponent } from './components/pages/login/login.component';
-import { AdminDasboardComponent } from './features/admin/components/admin-dasboard/admin-dasboard.component';
+// import { AdminDasboardComponent } from './features/admin/components/admin-dasboard/admin-dasboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
@@ -21,7 +21,7 @@ const routes: Routes = [
 
   {
     path: 'admin',
-    component: MainHomeLayoutComponent,
+    // component: MainHomeLayoutComponent,
 
     loadChildren: () =>
       import('./features/admin/admin.module').then((m) => m.AdminModule),
