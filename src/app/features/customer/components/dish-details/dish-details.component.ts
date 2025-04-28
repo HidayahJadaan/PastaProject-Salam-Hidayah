@@ -57,7 +57,7 @@ export class DishDetailsComponent implements OnInit{
     .then((d)=>{
       console.log('Added');
       
-      
+       this.router.navigate(['/customer', 'cart']);
     })
 
   }

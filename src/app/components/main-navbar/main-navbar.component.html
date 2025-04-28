@@ -23,7 +23,12 @@
 </header> -->
 
 <header [class.active]="bannerActive">
-  <a href="/" class="logo">logo</a>
+  <div class="logo">
+    <a [routerLink]="['/']">
+
+      <img src="assets/images/logo2.jpeg" alt="" class="logo">
+    </a>
+  </div>
 
   <a href="#" class="menu" (click)="toggleMenu()" [class.active]="menuActive">
     <!-- <ion-icon name="grid-outline"></ion-icon> -->
@@ -32,7 +37,6 @@
   <ul class="nav">
     <li><a [routerLink]="['/customer','menu']">Menu</a></li>
     <li><a href="#">Recipe Kit</a></li>
-    <li><a href="#">Takeaway</a></li>
     <li><a href="#">Gifts</a></li>
     <li><a href="#">Restaurants</a></li>
   </ul>
@@ -40,7 +44,6 @@
   <ul class="nav-mobile" [class.active]="menuActive">
     <li><a href="#">Menu</a></li>
     <li><a href="#">Recipe Kit</a></li>
-    <li><a href="#">Takeaway</a></li>
     <li><a href="#">Gifts</a></li>
     <li><a href="#">Restaurants</a></li>
   </ul>

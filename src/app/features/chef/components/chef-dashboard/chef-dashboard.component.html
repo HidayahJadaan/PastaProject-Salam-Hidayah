@@ -1,17 +1,30 @@
+<div class="admin-dashboard">
+  <div class="dashboard-header">
+    <h1>Chef Dashboard</h1>
+  </div>
 
+  <div class="dashboard-cards">
+    <!-- Pastas Section -->
+    <div class="dashboard-card">
+      <div class="card-header">
+        <h2>All Pastas</h2>
+        <a [routerLink]="['/chef', 'dishes']" class="view-more">See more</a>
+      </div>
+      <div class="card-body">
+        <p>Manage and add new pasta dishes.</p>
+        <button [routerLink]="['/chef', 'dishes', 'add']" class="btn-add">Add New Dish</button>
+      </div>
+    </div>
 
-
-<div class="chefs-pastas">
-    <h2>List of All pastas</h2>
-        <a [routerLink]="['/chef','dishes']">see more...</a>
-
-    <button [routerLink]="['/chef', 'dishes', 'add']" >Add New Dish</button>
-
+    <!-- Orders Section -->
+    <div class="dashboard-card">
+      <div class="card-header">
+        <h2>All Orders</h2>
+        <a [routerLink]="['/chef', 'orders']" class="view-more">See more</a>
+      </div>
+      <div class="card-body">
+        <p>View and manage customer orders.</p>
+      </div>
+    </div>
+  </div>
 </div>
-<!-- <div class="chefs-ingredients">
-    <h2>List of All Ingredients</h2>
-        <a [routerLink]="['/chef','ingredients']">see more...</a>
-
-    <button>Add New Ingredient</button>
-
-</div> -->

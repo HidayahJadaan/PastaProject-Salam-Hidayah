@@ -1,6 +1,6 @@
 // =================================================================
 .banner {
-  border: 1px solid red;
+  // border: 1px solid red;
   position: relative;
   width: 45%;
   min-height: 100vh;
@@ -38,6 +38,7 @@
   margin-bottom: 20px;
   transition: 1s;
   transition-delay: 0.5s;
+  // color: var(--primary);
 }
 
 .banner.active .content h1 {
@@ -52,14 +53,15 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: #000000;
+  // color: #000000;
+  color: var(--primary);
   text-decoration: none;
   font-size: 1.3em;
   text-transform: uppercase;
   font-weight: 200;
   letter-spacing: 1px;
   padding: 0.7rem 2.5rem;
-  border: 1px solid rgba(0, 0, 0, 1);
+  border: 1px solid var(--primary);
   opacity: 1;
   visibility: visible;
   transition: 0.5s;
@@ -71,6 +73,8 @@
 
 .banner .content a.btn:hover {
   gap: 30px;
+  background: var(--primary);
+  color: #ffffff;
 }
 
 .banner .content .arrow {
@@ -106,7 +110,7 @@
 
 .banner-middle {
   position: absolute;
-  top: 9%;
+  top: 10%;
   left: 48%;
   width: 50%;
   height: 100vh;
@@ -116,7 +120,7 @@
   transition: ease-in-out 1.5s;
   transition-delay: 0.2s;
   z-index: 50;
-  border: 1px solid red;
+  // border: 1px solid red;
 }
 
 .banner-middle.active {

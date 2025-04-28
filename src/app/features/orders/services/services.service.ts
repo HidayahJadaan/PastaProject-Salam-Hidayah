@@ -51,6 +51,22 @@ export class ServicesService {
   // ================================
 
   // Get user orders by customerID
+  getAllOrders(): Promise<Orders[]> {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const orders: Orders[] = JSON.parse(
+          this.storageService.getItemFromLocalStorage(ORDER_LOCAL_STORAGE_KEY) || '[]'
+        );
+
+        
+
+        resolve(orders);
+      }, 1500);
+    });
+  }
+  // ================================
+
+  // Get user orders by customerID
   getUserOrders(customerID: string): Promise<Orders[]> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
