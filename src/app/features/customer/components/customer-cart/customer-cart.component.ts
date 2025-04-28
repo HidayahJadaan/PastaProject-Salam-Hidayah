@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrl: './customer-cart.component.scss'
 })
 export class CustomerCartComponent {
+  orderStatus = 'preparing'; 
 
+  isActive(status: string): boolean {
+    const steps = ['pending', 'accepted', 'preparing', 'ready', 'delivered'];
+    return steps.indexOf(status) <= steps.indexOf(this.orderStatus.toLowerCase());
+  }
+  
 }

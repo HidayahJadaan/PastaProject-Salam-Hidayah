@@ -1,1 +1,41 @@
-<p>customer-orders works!</p>
+<div class="orders-container" *ngIf="!loading; else loadingTemplate">
+    <h2 class="title">My Orders</h2>
+  
+    <div *ngIf="myorders.length > 0; else noOrdersTemplate" class="orders-list">
+      <div class="order-card" *ngFor="let order of myorders">
+        <div class="order-header">
+          <span class="order-id">Order #: #{{ order.id }}</span>
+          <span class="order-status" [ngClass]="order.Status">{{ order.Status | titlecase }}</span>
+        </div>
+  
+        <div class="order-body">
+          <p><strong>Order Date:</strong> {{ order.OrderDate | date:'short' }}</p>
+          <p><strong>Delivery Address:</strong> {{ order.DeliveryAddress }}</p>
+          <p><strong>Total Price:</strong> {{ order.TotalPrice | currency:'USD' }}</p>
+          <p><strong>Order Type:</strong> {{ order.OrderType }}</p>
+        </div>
+      </div>
+  
+      <!-- Total Price Section -->
+      <div class="checkout-section">
+        <h3>Total Amount: {{ getTotalPrice() | currency:'USD' }}</h3>
+      
+        <button class="btn-checkout" (click)="goToCart()">Checkout</button>
+      </div>
+      
+    </div>
+  </div>
+  
+  <!-- Loading Template -->
+  <ng-template #loadingTemplate>
+    <div class="loading">Loading your orders...</div>
+  </ng-template>
+  
+  <!-- No Orders Template -->
+  <ng-template #noOrdersTemplate>
+    <div class="no-orders">
+      <p>You don't have any orders yet.</p>
+      <button (click)="router.navigate(['/customer', 'menu'])" class="btn-order">Start Ordering</button>
+    </div>
+  </ng-template>
+  
