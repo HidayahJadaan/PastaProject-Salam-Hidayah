@@ -1,1 +1,12 @@
-<p>customer-cart works!</p>
+<div class="cart-container">
+    <h2>Order Status</h2>
+  
+    <div class="status-steps">
+      <div class="step" [class.active]="isActive('pending')">Pending</div>
+      <div class="step" [class.active]="isActive('accepted')">Accepted</div>
+      <div class="step" [class.active]="isActive('preparing')">Preparing</div>
+      <div class="step" [class.active]="isActive('ready')">Ready</div>
+      <div class="step" [class.active]="isActive('delivered')">Delivered</div>
+    </div>
+  </div>
+  
