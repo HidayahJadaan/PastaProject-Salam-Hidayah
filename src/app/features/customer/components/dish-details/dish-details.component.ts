@@ -3,6 +3,7 @@ import { PastaDish } from '../../../pasta/models/pasta.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PastaService } from '../../../pasta/services/pasta.service';
 import { IngredientsService } from '../../../ingredients/services/ingredients.service';
+import { ServicesService } from '../../../orders/services/services.service';
 
 @Component({
   selector: 'app-dish-details',
@@ -19,7 +20,8 @@ export class DishDetailsComponent implements OnInit{
     private route: ActivatedRoute,
     private router: Router,
     private dishesService: PastaService,
-    private ingredientsService: IngredientsService
+    private ingredientsService: IngredientsService,
+    private ordersService:ServicesService
   ) {}
 
   ngOnInit(): void {
@@ -48,7 +50,15 @@ export class DishDetailsComponent implements OnInit{
     this.router.navigate(['/customer','menu']);
   }
 
-  orderDish(): void {
-    alert(`You have ordered ${this.dish?.name}!`);
+  orderDish(dish:PastaDish): void {
+    // alert(`You have ordered ${this.dish?.name}!`);
+
+    this.ordersService.addOrder(dish)
+    .then((d)=>{
+      console.log('Added');
+      
+      
+    })
+
   }
 }
