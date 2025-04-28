@@ -26,7 +26,7 @@ export class AuthServiceService {
     // }
 localStorage.clear();
     // this.userUpdated.emit(null);
-    this.router.navigate(['/']);
+    this.router.navigate(['/auth']);
   }
   // ================================
   loginUser(email: string, password: string): Promise<User> {

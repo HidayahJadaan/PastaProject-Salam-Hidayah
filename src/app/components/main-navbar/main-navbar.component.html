@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
   <div>
     <ul>
       <li [routerLink]="['/']">Home</li>
@@ -20,4 +20,45 @@
       </button>
     </div>
   </ng-template>
+</header> -->
+
+<header [class.active]="bannerActive">
+  <a href="/" class="logo">logo</a>
+
+  <a href="#" class="menu" (click)="toggleMenu()" [class.active]="menuActive">
+    <!-- <ion-icon name="grid-outline"></ion-icon> -->
+  </a>
+
+  <ul class="nav">
+    <li><a [routerLink]="['/customer','menu']">Menu</a></li>
+    <li><a href="#">Recipe Kit</a></li>
+    <li><a href="#">Takeaway</a></li>
+    <li><a href="#">Gifts</a></li>
+    <li><a href="#">Restaurants</a></li>
+  </ul>
+
+  <ul class="nav-mobile" [class.active]="menuActive">
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">Recipe Kit</a></li>
+    <li><a href="#">Takeaway</a></li>
+    <li><a href="#">Gifts</a></li>
+    <li><a href="#">Restaurants</a></li>
+  </ul>
+<!-- ================================================================== -->
+ <div class="user-credentials">
+
+   <div *ngIf="isLogin; else notLoggedIn">
+     <button [routerLink]="['/',userType,'profile']">{{ userName }}</button>
+     <button (click)="logout()" class="logout-btn">Logout</button>
+    </div>
+    
+    <ng-template #notLoggedIn>
+      <div>
+        <button class="cursor-pointer" [routerLink]="['/auth', 'login']">
+          Login
+        </button>
+      </div>
+    </ng-template>
+  </div>
+<!-- ================================================================== -->
 </header>

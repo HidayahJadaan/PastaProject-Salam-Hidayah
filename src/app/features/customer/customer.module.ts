@@ -8,6 +8,8 @@ import { CustomerCartComponent } from './components/customer-cart/customer-cart.
 import { CustomerOrdersComponent } from './components/customer-orders/customer-orders.component';
 import { CustomerCookAtHomeComponent } from './components/customer-cook-at-home/customer-cook-at-home.component';
 import { CustomersRoutingModule } from './customers-routing.module';
+import { CustomersService } from './services/customers.service';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -19,11 +21,9 @@ import { CustomersRoutingModule } from './customers-routing.module';
     DishDetailsComponent,
     CustomerCartComponent,
     CustomerOrdersComponent,
-    CustomerCookAtHomeComponent
+    CustomerCookAtHomeComponent,
   ],
-  imports: [
-    CommonModule,
-    CustomersRoutingModule
-  ]
+  imports: [CommonModule, CustomersRoutingModule, FormsModule],
+  providers: [{ provide: CustomersService, useClass: CustomersService }],
 })
-export class CustomerModule { }
+export class CustomerModule {}

@@ -18,7 +18,7 @@ export class PastaService {
         id: '1',
         name: 'Classic Spaghetti Bolognese',
         description: 'Traditional Italian pasta with a rich meat sauce.',
-        image: 'assets/images/belongnese01.jpg',
+        image: 'assets/images/ClassicSpaghettiBolognese.jpg',
         price: 8.99,
         chefId: 101,
         pastaType: 'Spaghetti',
@@ -70,6 +70,7 @@ export class PastaService {
         dietaryInfo: 'Vegan, contains nuts and gluten',
         ingredientIds: ['10', '11'],
       },
+     
     ];
 
       // localStorage.clear();

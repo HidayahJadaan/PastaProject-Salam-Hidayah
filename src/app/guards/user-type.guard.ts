@@ -10,11 +10,12 @@ constructor(private storageService:IihStorageService){}
 
 
     if(currentUser && currentUser.type ==='admin'){
-    console.log('dddddddddddddd');
+    // console.log('dddddddddddddd');
 
       return true;
     }
     else{
+      
       return false;
     }
   }

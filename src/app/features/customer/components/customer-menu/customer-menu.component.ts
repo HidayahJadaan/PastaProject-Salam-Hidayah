@@ -1,11 +1,87 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PastaService } from '../../../pasta/services/pasta.service';
+import { IngredientsService } from '../../../ingredients/services/ingredients.service';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { PastaDish } from '../../../pasta/models/pasta.model';
+import PaginatedResponse from '../../../shared/models/paginated-response.model';
 
 @Component({
   selector: 'app-customer-menu',
   standalone: false,
   templateUrl: './customer-menu.component.html',
-  styleUrl: './customer-menu.component.scss'
+  styleUrl: './customer-menu.component.scss',
 })
-export class CustomerMenuComponent {
+export class CustomerMenuComponent implements OnInit {
+  constructor(
+    private dishesService: PastaService,
+    private ingredientsService: IngredientsService,
+    private route: ActivatedRoute,
+    public router: Router
+  ) {}
+  selectedDishIngredients: any[] = [];
+  showModal: boolean = false;
 
+  dishes: PastaDish[] = []; //feach database
+
+  loading: boolean = false;
+  pages: number[] = [1, 2, 3, 4, 5];
+  currentPage: number = 1;
+  pageSize: number = 7;
+
+  ngOnInit(): void {
+    this.dishesService.fillData();
+    this.ingredientsService.fillData();
+    this.loading = true;
+
+    this.route.queryParams.subscribe((queryParams: Params) => {
+      this.currentPage = parseInt(queryParams['page'] || 1);
+
+      this.loadDishes();
+    });
+  }
+
+  // ===========================
+
+  loadDishes(): void {
+    this.dishesService
+      .getPastaDishes(this.currentPage, this.pageSize)
+      .then((response: PaginatedResponse<PastaDish>) => {
+        if (this.currentPage > response.numberOfPages) {
+          this.router.navigate(['/customer', 'menu'], {
+            queryParams: { page: 1, pageSize: this.pageSize },
+          });
+        }
+
+        this.dishes = response.data;
+        this.pages = [];
+
+        for (let index = 1; index <= response.numberOfPages; index++) {
+          this.pages.push(index);
+        }
+
+        this.loading = false;
+      });
+  }
+
+  closeModal() {
+    this.showModal = false;
+  }
+
+  async viewDishIngredients(dishId: string): Promise<void> {
+    console.log(dishId);
+
+    try {
+      this.selectedDishIngredients =
+        await this.ingredientsService.getIngredientsByDishId(dishId);
+      this.showModal = true;
+    } catch (error) {
+      console.error('Failed to load ingredients:', error);
+    }
+
+    console.log(this.selectedDishIngredients);
+  }
+
+  viewDish(dish:PastaDish){
+this.router.navigate(['/customer', 'dish', dish.id]);
+  }
 }
