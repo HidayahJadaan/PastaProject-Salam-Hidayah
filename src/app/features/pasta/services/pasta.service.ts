@@ -23,7 +23,9 @@ export class PastaService {
         chefId: 101,
         pastaType: 'Spaghetti',
         dietaryInfo: 'Contains gluten, dairy, and beef',
+        dietaryInfo2: 'Non-Vegetarian',
         ingredientIds: ['1', '2', '3'],
+        souceColor: 'Red',
       },
       {
         id: '2',
@@ -34,7 +36,9 @@ export class PastaService {
         chefId: 102,
         pastaType: 'Fettuccine',
         dietaryInfo: 'Vegetarian, contains dairy and gluten',
+        dietaryInfo2: 'Vegetarian',
         ingredientIds: ['3', '4', '5'],
+        souceColor: 'White',
       },
       {
         id: '3',
@@ -45,7 +49,9 @@ export class PastaService {
         chefId: 101,
         pastaType: 'Penne',
         dietaryInfo: 'Vegetarian, contains nuts and gluten',
+        dietaryInfo2: 'Vegetarian',
         ingredientIds: ['6', '7'],
+        souceColor: 'White',
       },
       {
         id: '4',
@@ -57,7 +63,9 @@ export class PastaService {
         chefId: 103,
         pastaType: 'Linguine',
         dietaryInfo: 'Contains shellfish, gluten',
+        dietaryInfo2: 'Non-Vegetarian',
         ingredientIds: ['2', '8', '9'],
+        souceColor: 'White',
       },
       {
         id: '5',
@@ -68,9 +76,10 @@ export class PastaService {
         chefId: 104,
         pastaType: 'Macaroni',
         dietaryInfo: 'Vegan, contains nuts and gluten',
+        dietaryInfo2: 'Vegetarian',
         ingredientIds: ['10', '11'],
+        souceColor: 'White',
       },
-     
     ];
 
       // localStorage.clear();

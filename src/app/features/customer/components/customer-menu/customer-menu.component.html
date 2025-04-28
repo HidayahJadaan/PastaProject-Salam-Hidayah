@@ -2,8 +2,18 @@
   <h1 class="menu-title">🍝 Our Pasta Menu</h1>
   <button (click)="router.navigate(['/customer','orders'])" class="btn-order">View My Orders</button>
 
+
+  <div class="filters">
+  <button (click)="filterDishes('all')">All</button>
+  <button (click)="filterDishes('red')">Red Sauce</button>
+  <button (click)="filterDishes('white')">White Sauce</button>
+  <button (click)="filterDishes('vegetarian')">Vegetarian</button>
+  <button (click)="filterDishes('nonVegetarian')">Non-Vegetarian</button>
+</div>
+
+
   <div class="dishes-grid">
-    <div class="dish-card" *ngFor="let dish of dishes">
+    <div class="dish-card" *ngFor="let dish of filteredDishes">
       <img [src]="dish.image" alt="{{ dish.name }}" class="dish-image" />
       <div class="dish-info">
         <h2 (click)="viewDish(dish)">{{ dish.name }}</h2>

@@ -8,5 +8,7 @@ export interface PastaDish {
   chefId?: number;
   pastaType: string;
   dietaryInfo: string;
+  dietaryInfo2?: string;
   ingredientIds?: string[];
+  souceColor?:string,
 }

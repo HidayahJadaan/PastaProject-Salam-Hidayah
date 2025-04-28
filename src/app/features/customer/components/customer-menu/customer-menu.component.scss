@@ -157,3 +157,18 @@
   color: #555;
   padding: 3rem;
 }
+.filters {
+  margin: 1rem 0;
+  display: flex;
+  gap: 10px;
+}
+.filters button {
+  padding: 8px 12px;
+  border: none;
+  background-color: #e0e0e0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.filters button:hover {
+  background-color: #d1c4e9;
+}

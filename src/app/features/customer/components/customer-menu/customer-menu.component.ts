@@ -22,6 +22,7 @@ export class CustomerMenuComponent implements OnInit {
   showModal: boolean = false;
 
   dishes: PastaDish[] = []; //feach database
+  filteredDishes: PastaDish[] = []; //feach database
 
   loading: boolean = false;
   pages: number[] = [1, 2, 3, 4, 5];
@@ -53,6 +54,7 @@ export class CustomerMenuComponent implements OnInit {
         }
 
         this.dishes = response.data;
+        this.filteredDishes = this.dishes;
         this.pages = [];
 
         for (let index = 1; index <= response.numberOfPages; index++) {
@@ -62,6 +64,29 @@ export class CustomerMenuComponent implements OnInit {
         this.loading = false;
       });
   }
+
+  filterDishes(filterType: string) {
+    if (filterType === 'all') {
+      this.filteredDishes = this.dishes;
+    } else if (filterType === 'red') {
+      this.filteredDishes = this.dishes.filter(
+        (dish) => dish.souceColor === 'Red'
+      );
+    } else if (filterType === 'white') {
+      this.filteredDishes = this.dishes.filter(
+        (dish) => dish.souceColor === 'White'
+      );
+    } else if (filterType === 'vegetarian') {
+      this.filteredDishes = this.dishes.filter(
+        (dish) => dish.dietaryInfo2 === 'Vegetarian'
+      );
+    } else if (filterType === 'nonVegetarian') {
+      this.filteredDishes = this.dishes.filter(
+        (dish) => dish.dietaryInfo2 === 'Non-Vegetarian'
+      );
+    }
+  }
+
 
   closeModal() {
     this.showModal = false;
@@ -81,7 +106,7 @@ export class CustomerMenuComponent implements OnInit {
     console.log(this.selectedDishIngredients);
   }
 
-  viewDish(dish:PastaDish){
-this.router.navigate(['/customer', 'dish', dish.id]);
+  viewDish(dish: PastaDish) {
+    this.router.navigate(['/customer', 'dish', dish.id]);
   }
 }
