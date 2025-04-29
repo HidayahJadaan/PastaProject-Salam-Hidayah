@@ -373,13 +373,23 @@ header.active .user-credentials {
 }
 
 .form {
-  width: 100%;
+  width: 70%;
   //   max-width: 500px;
   // background: var(--white);
   padding: 0 20px;
   border-radius: 10px;
   min-height: fit-content;
   //   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 260px;
+}
+.head .pasta-add {
+  
+  margin-left: auto;
 }
 
 .form-control {
@@ -417,6 +427,7 @@ header.active .user-credentials {
 
   padding: 10px;
   border: none;
+  color: #fff;
   border-radius: 6px;
   font-size: 16px;
   cursor: pointer;
@@ -424,7 +435,7 @@ header.active .user-credentials {
 }
 
 .form-control button:hover {
-   background: var(--orange);
-   border: 1px solid var(--primary);
-     color: var(--black1);
+   background:darken($color: #000000, $amount: 0);
+  //  border: 1px solid var(--primary);
+     color: white;
 }
