@@ -164,11 +164,15 @@
 }
 .filters button {
   padding: 8px 12px;
+  color: white;
   border: none;
-  background-color: #e0e0e0;
+  background-color: var(--primary);
   cursor: pointer;
   border-radius: 5px;
 }
 .filters button:hover {
-  background-color: #d1c4e9;
+  background-color: darken($color: #000000, $amount: 0);
+}
+.btn-order {
+  margin-left: auto;
 }
