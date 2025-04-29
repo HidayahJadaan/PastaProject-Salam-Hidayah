@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   error: string = '';
   rememberMe: boolean = false;
   success: boolean = false;
-  isLogin: boolean = true; // default is login mode
+  isLogin: boolean = true; 
 
   constructor(
     private router: Router,

@@ -1,8 +1,21 @@
-<app-auth-header></app-auth-header>
+<!-- <app-auth-header></app-auth-header> -->
 
-<div class="content">
+<div class="admin-layout">
+<aside class="sidebar">
+    <h2 class="sidebar-title">
+        <img src="assets/images/logo2-nobg.png" alt="" [routerLink]="['/']">
+    </h2>
+    <nav class="sidebar-nav">
+      <a [routerLink]="['/admin', 'branches']">Branches</a>
+      <a [routerLink]="['/admin', 'chefs']">Chefs</a>
+      <a [routerLink]="['/admin', 'admin-pastas-list']">Pastas</a>
+      <a [routerLink]="['/admin', 'ingredients']">Ingredients</a>
+    </nav>
+  </aside>
+  <div class="main-content">
 
-    <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
+    </div>
 
 </div>
-<app-auth-footer></app-auth-footer>
+<!-- <app-auth-footer></app-auth-footer> -->

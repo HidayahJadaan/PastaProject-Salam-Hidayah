@@ -8,6 +8,7 @@ import { ContactUsComponent } from './components/pages/contact-us/contact-us.com
 import { MainMenuComponent } from './components/pages/main-menu/main-menu.component';
 import { HomePageComponent } from './components/pages/home-page/home-page.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import { AuthLayoutComponent } from './features/shared/components/auth-layout/auth-layout.component';
 // import { AdminDasboardComponent } from './features/admin/components/admin-dasboard/admin-dasboard.component';
 
 const routes: Routes = [
@@ -21,7 +22,7 @@ const routes: Routes = [
 
   {
     path: 'admin',
-    // component: MainHomeLayoutComponent,
+    component: AuthLayoutComponent,
 
     loadChildren: () =>
       import('./features/admin/admin.module').then((m) => m.AdminModule),

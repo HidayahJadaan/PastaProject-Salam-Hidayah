@@ -103,7 +103,7 @@ position: relative;
   align-items: center;
   gap: 10px;
   font-size: 18px;
-  color: #3498db;
+  color: #000;
   margin-bottom: 20px;
 }
 
@@ -227,20 +227,20 @@ td.action button:nth-child(3):hover {
 
 .pagination a {
   padding: 8px 14px;
-  border: 1px solid #3498db;
+  border: 1px solid #d35400;
   border-radius: 6px;
   text-decoration: none;
-  color: #3498db;
+  color: #d35400;
   font-weight: bold;
   transition: all 0.3s;
 }
 
 .pagination a:hover {
-  background-color: #3498db;
+  background-color: #d35400;
   color: white;
 }
 
 .pagination a.active {
-  background-color: #3498db;
+  background-color: #d35400;
   color: white;
 }
