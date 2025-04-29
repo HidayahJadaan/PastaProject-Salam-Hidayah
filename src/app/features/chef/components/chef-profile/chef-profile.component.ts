@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthServiceService } from '../../../shared/services/auth-service.service';
 import { Chef } from '../../models/chef.model';
 import { ChefService } from '../../services/chef.service';
+import { UserService } from '../../../users/services/user.service';
+import User from '../../../users/models/user.model';
 
 @Component({
   selector: 'app-chef-profile',
@@ -11,21 +13,22 @@ import { ChefService } from '../../services/chef.service';
   styleUrl: './chef-profile.component.scss',
 })
 export class ChefProfileComponent {
-  id: string='0';
+  id: string = '0';
   loading: boolean = false;
   error: string = '';
-  user!: Chef;
+  user!: User;
   isEditing: boolean = false;
-  originalUser!: Chef;
+  originalUser!: User;
 
   constructor(
     private route: ActivatedRoute,
     private chefsService: ChefService,
+    private usersService: UserService,
     private router: Router,
-    private authService:AuthServiceService
+    private authService: AuthServiceService
   ) {}
 
-   ngOnInit(): void {
+  ngOnInit(): void {
     const curr = this.authService.getCurrentUser();
     console.log('Current User:', curr);
 
@@ -35,9 +38,9 @@ export class ChefProfileComponent {
     if (this.id) {
       this.loading = true;
 
-      this.chefsService
-        .getChef(this.id)
-        .then((chef: Chef) => {
+      this.usersService
+        .getUsers(this.id)
+        .then((chef: User) => {
           this.user = chef;
           this.originalUser = { ...chef };
         })
@@ -51,20 +54,17 @@ export class ChefProfileComponent {
     } else {
       this.error = 'Invalid user id';
     }
-
-
   }
 
   saveChanges(): void {
-    
     console.log('Saving:', this.user);
     this.isEditing = false;
-   
+
     this.originalUser = { ...this.user };
   }
 
   cancelEdit(): void {
-    this.user = { ...this.originalUser }; 
+    this.user = { ...this.originalUser };
     this.isEditing = false;
   }
   editUserProfileInfo(): void {

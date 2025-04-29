@@ -36,7 +36,7 @@
 
 .view-more {
   font-size: 0.9rem;
-  color: #3498db;
+  color: var(--primary);
   text-decoration: none;
 }
 
@@ -50,7 +50,7 @@
 }
 
 .btn-add {
-  background-color: #28a745;
+  background-color: var(--primary);
   color: #fff;
   padding: 0.6rem 1.2rem;
   border: none;
@@ -60,5 +60,5 @@
 }
 
 .btn-add:hover {
-  background-color: #218838;
+  background-color: var(--primary);
 }

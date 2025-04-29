@@ -3,6 +3,8 @@ import { Customer } from '../../models/customer.models';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CustomersService } from '../../services/customers.service';
 import { AuthServiceService } from '../../../shared/services/auth-service.service';
+import { UserService } from '../../../users/services/user.service';
+import User from '../../../users/models/user.model';
 
 @Component({
   selector: 'app-customer-profile',
@@ -14,15 +16,16 @@ export class CustomerProfileComponent implements OnInit {
  id: string='0';
   loading: boolean = false;
   error: string = '';
-  user!: Customer;
+  user!: User;
   isEditing: boolean = false;
-  originalUser!: Customer;
+  originalUser!: User;
 
   constructor(
     private route: ActivatedRoute,
     private customersService: CustomersService,
     private router: Router,
-    private authService:AuthServiceService
+    private authService:AuthServiceService,
+    private usersServices:UserService
   ) {}
 
    ngOnInit(): void {
@@ -35,14 +38,15 @@ export class CustomerProfileComponent implements OnInit {
     if (this.id) {
       this.loading = true;
 
-      this.customersService.getCustomer(this.id)
-        .then((customer: Customer) => {
+      this.usersServices
+        .getUsers(this.id)
+        .then((customer: User) => {
           console.log(this.id);
-          
+
           this.user = customer;
           this.originalUser = { ...customer };
         })
-        .catch((err:any) => {
+        .catch((err: any) => {
           this.error = 'Failed to load customer profile.';
           console.error('Error while loading customer:', err);
         })
