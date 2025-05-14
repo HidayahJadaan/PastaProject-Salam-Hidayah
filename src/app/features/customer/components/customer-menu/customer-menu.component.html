@@ -1,15 +1,15 @@
 <div class="menu-container" *ngIf="!loading; else loadingTemplate">
-  <h1 class="menu-title">🍝 Our Pasta Menu</h1>
-  <button (click)="router.navigate(['/customer','orders'])" class="btn-order">View My Orders</button>
-
-
+  <!-- <h1 class="menu-title">🍝 Our Pasta Menu</h1> -->
+  
+  
   <div class="filters">
-  <button (click)="filterDishes('all')">All</button>
-  <button (click)="filterDishes('red')">Red Sauce</button>
-  <button (click)="filterDishes('white')">White Sauce</button>
-  <button (click)="filterDishes('vegetarian')">Vegetarian</button>
-  <button (click)="filterDishes('nonVegetarian')">Non-Vegetarian</button>
-</div>
+    <button (click)="filterDishes('all')">All</button>
+    <button (click)="filterDishes('red')">Red Sauce</button>
+    <button (click)="filterDishes('white')">White Sauce</button>
+    <button (click)="filterDishes('vegetarian')">Vegetarian</button>
+    <button (click)="filterDishes('nonVegetarian')">Non-Vegetarian</button>
+    <button (click)="router.navigate(['/customer','orders'])" class="btn-order">View My Orders</button>
+  </div>
 
 
   <div class="dishes-grid">

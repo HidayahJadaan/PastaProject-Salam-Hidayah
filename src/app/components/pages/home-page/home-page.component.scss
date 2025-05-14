@@ -9,6 +9,7 @@
   overflow: hidden;
   transition: ease-in-out 1.5s;
   z-index: 10;
+  color: var(--second-brown);
 }
 
 .banner.active {
@@ -79,10 +80,11 @@
 
 .banner .content .arrow {
   position: absolute;
+  top: 0%;
+  left: -500%;
   visibility: hidden;
   padding: 0;
   transition: 0.5s;
-  left: 50%;
   transform: translateX(-50%);
   bottom: 10%;
   border: none;
@@ -110,9 +112,9 @@
 
 .banner-middle {
   position: absolute;
-  top: 10%;
-  left: 48%;
-  width: 50%;
+  top: 15%;
+  left: 55%;
+  width: 45%;
   height: 100vh;
   padding: 0 10px;
   // background: rgba(0, 0, 0, 1);
@@ -124,7 +126,7 @@
 }
 
 .banner-middle.active {
-  left: 8%;
+  left: 2%;
 }
 
 .banner-middle .container {

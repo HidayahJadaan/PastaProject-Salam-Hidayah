@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit {
         .then((user: User) => {
           this.success = false;
           this.loaderService.hide();
-          alert(`Welcome back, ${user.name}`);
+          // alert(`Welcome back, ${user.name}`);
           localStorage.setItem('remember-me', JSON.stringify(this.rememberMe));
           this.saveUserSession(user);
           this.redirectUser(user);
